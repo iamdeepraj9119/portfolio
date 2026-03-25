@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #121212;
+  --foreground: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth; /* 🔥 smooth scroll */
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  overscroll-behavior: none;
+
+  cursor: none; /* 🔥 custom cursor enable */
+}
+
+/* 🔥 Cursor glow smooth */
+#cursor-glow {
+  transition: all 0.1s ease-out;
+}
