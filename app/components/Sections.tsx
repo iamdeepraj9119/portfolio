@@ -23,8 +23,11 @@ export default function SkillsSection() {
           <div className="relative bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-xl">
             <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
               I am an aspiring Data Analyst currently pursuing MCA in Data Analytics. 
-              I have strong skills in Python, SQL, Excel, and Power BI. I enjoy transforming 
-              raw data into meaningful insights and dashboards.
+I have strong skills in Python, SQL, Excel, and Power BI. 
+
+Along with data analytics, I also have knowledge of Digital Marketing, including SEO, Google Analytics, and Social Media Marketing. 
+
+I enjoy transforming raw data into meaningful insights, dashboards, and data-driven strategies that help businesses grow.
             </p>
           </div>
         </div>
