@@ -35,11 +35,21 @@ export default function Navbar() {
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // 🔥 initial call
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // ✅ Smooth Scroll FIX
+  const handleClick = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+      setActive(id);
+    }
+  };
+
   const linkClass = (section: string) =>
-    `relative transition duration-300 ${
+    `relative cursor-pointer transition duration-300 ${
       active === section
         ? 'text-blue-400 font-semibold'
         : 'text-white/70'
@@ -63,8 +73,11 @@ export default function Navbar() {
       >
         <div className="flex justify-between items-center px-6 md:px-20 py-2">
 
-          {/* 🔥 LOGO (UPDATED TYPOGRAPHY) */}
-          <h1 className="text-xl font-bold text-white tracking-tight">
+          {/* LOGO */}
+          <h1
+            onClick={() => handleClick('about')}
+            className="text-xl font-bold text-white tracking-tight cursor-pointer"
+          >
             Deepraj Srivastav
           </h1>
 
@@ -72,7 +85,11 @@ export default function Navbar() {
           <div className="hidden md:flex gap-8 text-sm font-medium">
 
             {['about', 'skills', 'projects', 'contact'].map((item) => (
-              <a key={item} href={`#${item}`} className={linkClass(item)}>
+              <div
+                key={item}
+                onClick={() => handleClick(item)}
+                className={linkClass(item)}
+              >
                 {item.charAt(0).toUpperCase() + item.slice(1)}
 
                 {/* Underline */}
@@ -81,7 +98,7 @@ export default function Navbar() {
                     active === item ? 'w-full' : 'w-0'
                   }`}
                 />
-              </a>
+              </div>
             ))}
 
           </div>
@@ -100,14 +117,16 @@ export default function Navbar() {
         {menuOpen && (
           <div className="md:hidden bg-black/90 backdrop-blur-lg px-6 py-6 space-y-4 text-center">
             {['about', 'skills', 'projects', 'contact'].map((item) => (
-              <a
+              <div
                 key={item}
-                href={`#${item}`}
-                onClick={() => setMenuOpen(false)}
-                className="block text-white text-lg hover:text-blue-400 transition"
+                onClick={() => {
+                  handleClick(item);
+                  setMenuOpen(false);
+                }}
+                className="block text-white text-lg hover:text-blue-400 transition cursor-pointer"
               >
                 {item.toUpperCase()}
-              </a>
+              </div>
             ))}
           </div>
         )}
