@@ -126,48 +126,57 @@ export default function SkillsSection() {
             },
             {
               title: "Projects",
-              desc: "📊 HR Analytics & E-commerce Dashboard with real datasets",
+              desc: "📊 HR Analytics & E-commerce Dashboard",
             },
             {
               title: "LinkedIn",
-              desc: "🔗 Active on LinkedIn with professional networking",
+              desc: "🔗 Active on LinkedIn",
+              link: "https://linkedin.com/in/iamdeepraj9119",
             },
             {
               title: "Certifications",
-              desc: "📜 Power BI, Data Analytics & Digital Marketing",
+              desc: "📜 Power BI & Data Analytics",
             },
             {
               title: "Digital Marketing",
-              desc: "📈 SEO, Google Analytics & Social Media Marketing",
+              desc: "📈 SEO & Google Analytics",
             },
             {
               title: "GitHub",
-              desc: "🚀 Strong portfolio with live projects",
+              desc: "🚀 Live projects portfolio",
+              link: "https://github.com/iamdeepraj9119",
             },
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              whileHover={{ scale: 1.05 }}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4 }}
-              className="relative group"
-            >
-              <div className="absolute -inset-1 bg-gradient-to-r 
-              from-green-400 via-blue-500 to-purple-600 
-              rounded-2xl blur opacity-20 group-hover:opacity-60 transition"></div>
+          ].map((item, i) => {
+            const Card = item.link ? motion.a : motion.div;
 
-              <div className="relative bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-xl h-full">
-                <h3 className="text-lg sm:text-xl font-semibold mb-2 text-white">
-                  {item.title}
-                </h3>
-                <p className="text-gray-400 text-sm sm:text-base">
-                  {item.desc}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+            return (
+              <Card
+                key={i}
+                href={item.link || undefined}
+                target={item.link ? "_blank" : undefined}
+                whileHover={{ scale: 1.05 }}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4 }}
+                className="relative group block"
+              >
+                <div className="absolute -inset-1 bg-gradient-to-r 
+                from-green-400 via-blue-500 to-purple-600 
+                rounded-2xl blur opacity-20 group-hover:opacity-60 transition"></div>
+
+                <div className="relative bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-xl h-full cursor-pointer">
+                  <h3 className="text-lg sm:text-xl font-semibold mb-2 text-white">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm sm:text-base">
+                    {item.desc}
+                  </p>
+                </div>
+              </Card>
+            );
+          })}
+
         </div>
       </section>
 
