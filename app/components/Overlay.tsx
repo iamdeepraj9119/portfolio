@@ -34,27 +34,30 @@ export default function Overlay() {
         >
           <div className="bg-black/40 px-5 py-6 sm:px-8 sm:py-8 md:px-12 md:py-10 rounded-2xl backdrop-blur-xl shadow-2xl max-w-[90vw] sm:max-w-xl">
 
-            {/* NAME */}
             <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold text-white leading-tight">
               Deepraj Srivastav
             </h1>
 
-            {/* ROLE */}
             <p className="text-base sm:text-lg md:text-2xl text-blue-400 font-semibold mt-3">
               Data Analyst | Digital Marketing
             </p>
 
-            {/* SKILLS */}
             <p className="text-gray-300 text-xs sm:text-sm md:text-base mt-3">
               Python • SQL • Excel • Power BI <br className="hidden sm:block" />
               SEO • Google Analytics • Social Media Marketing
             </p>
 
-            {/* 🔥 CTA BUTTONS */}
+            {/* 🔥 FIXED CTA BUTTONS */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mt-6 pointer-events-auto">
 
               <a
                 href="#projects"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById("projects")?.scrollIntoView({
+                    behavior: "smooth",
+                  });
+                }}
                 className="px-5 py-2.5 sm:px-6 sm:py-3 bg-white text-black rounded-xl font-medium hover:scale-105 transition text-sm sm:text-base"
               >
                 View Projects
@@ -62,6 +65,12 @@ export default function Overlay() {
 
               <a
                 href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById("contact")?.scrollIntoView({
+                    behavior: "smooth",
+                  });
+                }}
                 className="px-5 py-2.5 sm:px-6 sm:py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl font-medium hover:scale-105 transition text-sm sm:text-base text-white"
               >
                 Contact Me
