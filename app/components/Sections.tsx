@@ -7,8 +7,31 @@ export default function SkillsSection() {
   return (
     <div className="px-4 sm:px-6 md:px-20 py-20 space-y-20">
 
+      {/* ================= ABOUT ================= */}
+      <section id="about" className="scroll-mt-24">
+        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-10 text-white">
+          About
+        </h2>
+
+        <div className="relative group max-w-3xl">
+          {/* Glow */}
+          <div className="absolute -inset-1 bg-gradient-to-r 
+          from-blue-500 via-purple-500 to-pink-500 
+          rounded-2xl blur opacity-30"></div>
+
+          {/* Content Box */}
+          <div className="relative bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-xl">
+            <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+              I am an aspiring Data Analyst currently pursuing MCA in Data Analytics. 
+              I have strong skills in Python, SQL, Excel, and Power BI. I enjoy transforming 
+              raw data into meaningful insights and dashboards.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* ================= SKILLS ================= */}
-      <section id="skills">
+      <section id="skills" className="scroll-mt-24">
         <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-10 text-white">
           Skills
         </h2>
@@ -178,7 +201,9 @@ export default function SkillsSection() {
           ))}
         </div>
       </section>
-<CertificateGallery />
+
+      <CertificateGallery />
+
     </div>
   );
 }
