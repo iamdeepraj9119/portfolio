@@ -6,27 +6,31 @@ const projects = [
   {
     title: 'HR Data Analytics',
     desc: 'Employee attrition analysis using Excel & Python',
-    link: 'https://github.com/iamdeepraj9119',
+    link: 'https://github.com/iamdeepraj9119/HR-DATA-ANALYTICS',
   },
   {
     title: 'E-Commerce Dashboard',
     desc: 'Power BI dashboard for business insights',
-    link: 'https://github.com/iamdeepraj9119',
+    link: 'https://github.com/iamdeepraj9119/E-Commerce-Sales-Dashboard-Power-BI',
   },
   {
     title: 'CodeSweep',
     desc: 'Django tool to remove unused code',
-    link: 'https://github.com/iamdeepraj9119',
+    link: 'https://github.com/iamdeepraj9119/Code-Sweep-Project',
   },
 ];
 
 export default function Projects() {
   return (
-    <section id="projects" className="px-6 md:px-20 py-32 bg-[#121212] text-white">
+    <section
+      id="projects"
+      className="px-4 sm:px-6 md:px-20 py-20 md:py-32 bg-[#121212] text-white"
+    >
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-10">
+        Projects
+      </h2>
 
-      <h2 className="text-4xl font-bold mb-10">Projects</h2>
-
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 
         {projects.map((p, i) => (
           <a
@@ -38,21 +42,25 @@ export default function Projects() {
           >
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="relative bg-white/5 border border-white/10 p-6 rounded-2xl overflow-hidden transition"
+              className="relative bg-white/5 border border-white/10 p-6 rounded-2xl overflow-hidden backdrop-blur-xl transition"
             >
 
-              {/* Glow */}
+              {/* Glow Effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 opacity-0 group-hover:opacity-20 transition"></div>
 
-              <h3 className="text-xl font-semibold mb-2">{p.title}</h3>
-              <p className="text-gray-400">{p.desc}</p>
+              <h3 className="text-lg sm:text-xl font-semibold mb-2">
+                {p.title}
+              </h3>
+
+              <p className="text-gray-400 text-sm sm:text-base">
+                {p.desc}
+              </p>
 
             </motion.div>
           </a>
         ))}
 
       </div>
-
     </section>
   );
 }
