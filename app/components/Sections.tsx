@@ -13,7 +13,6 @@ export default function SkillsSection() {
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-
           {[
             {
               title: "Data Analysis",
@@ -79,7 +78,6 @@ export default function SkillsSection() {
         </h2>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">
-
           {[
             "Python",
             "SQL",
@@ -118,7 +116,6 @@ export default function SkillsSection() {
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-
           {[
             {
               title: "Internship",
@@ -126,57 +123,52 @@ export default function SkillsSection() {
             },
             {
               title: "Projects",
-              desc: "📊 HR Analytics & E-commerce Dashboard",
+              desc: "📊 HR Analytics & E-commerce Dashboard with real datasets",
             },
             {
               title: "LinkedIn",
-              desc: "🔗 Active on LinkedIn",
-              link: "https://linkedin.com/in/iamdeepraj9119",
+              desc: "🔗 Click to view my LinkedIn profile",
+              link: "https://www.linkedin.com/",
             },
             {
               title: "Certifications",
-              desc: "📜 Power BI & Data Analytics",
+              desc: "📜 Google Data Analytics, SQL (HackerRank), AI, Data Science, Prompt Engineering & Digital Marketing",
             },
             {
               title: "Digital Marketing",
-              desc: "📈 SEO & Google Analytics",
+              desc: "📈 SEO, Google Analytics & Social Media Marketing",
             },
             {
               title: "GitHub",
-              desc: "🚀 Live projects portfolio",
-              link: "https://github.com/iamdeepraj9119",
+              desc: "🚀 Click to view my GitHub projects",
+              link: "https://github.com/",
             },
-          ].map((item, i) => {
-            const Card = item.link ? motion.a : motion.div;
+          ].map((item, i) => (
+            <motion.a
+              key={i}
+              href={item.link || "#"}
+              target="_blank"
+              whileHover={{ scale: 1.05 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              className="relative group block"
+            >
+              <div className="absolute -inset-1 bg-gradient-to-r 
+              from-green-400 via-blue-500 to-purple-600 
+              rounded-2xl blur opacity-20 group-hover:opacity-60 transition"></div>
 
-            return (
-              <Card
-                key={i}
-                href={item.link || undefined}
-                target={item.link ? "_blank" : undefined}
-                whileHover={{ scale: 1.05 }}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4 }}
-                className="relative group block"
-              >
-                <div className="absolute -inset-1 bg-gradient-to-r 
-                from-green-400 via-blue-500 to-purple-600 
-                rounded-2xl blur opacity-20 group-hover:opacity-60 transition"></div>
-
-                <div className="relative bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-xl h-full cursor-pointer">
-                  <h3 className="text-lg sm:text-xl font-semibold mb-2 text-white">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-400 text-sm sm:text-base">
-                    {item.desc}
-                  </p>
-                </div>
-              </Card>
-            );
-          })}
-
+              <div className="relative bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-xl h-full">
+                <h3 className="text-lg sm:text-xl font-semibold mb-2 text-white">
+                  {item.title}
+                </h3>
+                <p className="text-gray-400 text-sm sm:text-base">
+                  {item.desc}
+                </p>
+              </div>
+            </motion.a>
+          ))}
         </div>
       </section>
 
