@@ -7,8 +7,21 @@ import Loader from './components/Loader';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Portfolio | Deepraj',
-  description: 'Data Analyst Portfolio',
+  title: 'Deepraj Srivastav | Data Analyst & Digital Marketer',
+  description:
+    'Portfolio of Deepraj Srivastav - Data Analyst skilled in Python, SQL, Excel, Power BI and Digital Marketing (SEO, Google Analytics, Social Media Marketing).',
+  keywords: [
+    'Data Analyst',
+    'Python',
+    'SQL',
+    'Power BI',
+    'Excel',
+    'Digital Marketing',
+    'SEO',
+    'Google Analytics',
+    'Social Media Marketing',
+  ],
+  authors: [{ name: 'Deepraj Srivastav' }],
 };
 
 export default function RootLayout({
@@ -21,7 +34,7 @@ export default function RootLayout({
       <body className={inter.className}>
         
         <Loader />
-        <CursorGlow />  {/* ✅ ENABLE THIS */}
+        <CursorGlow />
 
         {children}
 
