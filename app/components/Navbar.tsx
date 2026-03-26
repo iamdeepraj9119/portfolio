@@ -35,15 +35,18 @@ export default function Navbar() {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // 🔥 initial call
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // ✅ Smooth Scroll FIX
+  // ✅ FINAL SCROLL FIX (IMPORTANT)
   const handleClick = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      window.scrollTo({
+        top: el.offsetTop - 80, // 👈 navbar height adjust
+        behavior: 'smooth',
+      });
       setActive(id);
     }
   };
