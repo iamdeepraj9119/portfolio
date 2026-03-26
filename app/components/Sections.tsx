@@ -55,8 +55,6 @@ export default function SkillsSection() {
               transition={{ duration: 0.5 }}
               className="relative group"
             >
-
-              {/* Glow */}
               <div className="absolute -inset-1 bg-gradient-to-r 
               from-blue-500 via-purple-500 to-pink-500 
               rounded-2xl blur opacity-20 group-hover:opacity-60 transition"></div>
@@ -69,10 +67,8 @@ export default function SkillsSection() {
                   {skill.desc}
                 </p>
               </div>
-
             </motion.div>
           ))}
-
         </div>
       </section>
 
@@ -103,20 +99,75 @@ export default function SkillsSection() {
               transition={{ duration: 0.4 }}
               className="relative group text-center"
             >
-
-              {/* Glow */}
               <div className="absolute -inset-1 bg-gradient-to-r 
               from-blue-500 via-purple-500 to-pink-500 
               rounded-xl blur opacity-20 group-hover:opacity-60 transition"></div>
 
-              {/* Card */}
               <div className="relative bg-white/5 border border-white/10 px-4 py-4 rounded-xl backdrop-blur-xl text-sm sm:text-base text-white">
                 {tool}
               </div>
-
             </motion.div>
           ))}
+        </div>
+      </section>
 
+      {/* ================= SOCIAL PROOF ================= */}
+      <section id="proof">
+        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-10 text-white">
+          Achievements & Proof
+        </h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+          {[
+            {
+              title: "Internship",
+              desc: "💼 Django Web Development Intern – Digipodium (Code Sweep Project)",
+            },
+            {
+              title: "Projects",
+              desc: "📊 HR Analytics & E-commerce Dashboard with real datasets",
+            },
+            {
+              title: "LinkedIn",
+              desc: "🔗 Active on LinkedIn with professional networking",
+            },
+            {
+              title: "Certifications",
+              desc: "📜 Power BI, Data Analytics & Digital Marketing",
+            },
+            {
+              title: "Digital Marketing",
+              desc: "📈 SEO, Google Analytics & Social Media Marketing",
+            },
+            {
+              title: "GitHub",
+              desc: "🚀 Strong portfolio with live projects",
+            },
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ scale: 1.05 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              className="relative group"
+            >
+              <div className="absolute -inset-1 bg-gradient-to-r 
+              from-green-400 via-blue-500 to-purple-600 
+              rounded-2xl blur opacity-20 group-hover:opacity-60 transition"></div>
+
+              <div className="relative bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-xl h-full">
+                <h3 className="text-lg sm:text-xl font-semibold mb-2 text-white">
+                  {item.title}
+                </h3>
+                <p className="text-gray-400 text-sm sm:text-base">
+                  {item.desc}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </section>
 
