@@ -132,13 +132,13 @@ export default function SkillsSection() {
             },
             {
               title: "Certifications",
-              desc: `📊 Google Data Analytics Certification  
+              desc: `
+📊 Google Data Analytics Certification  
 📘 Career Essentials in Data Analysis (Microsoft + LinkedIn)  
 📗 Introduction to Career Skills in Data Analytics (LinkedIn)  
 💻 SQL (HackerRank Certified)  
-🧠 AI & Data Science Certification  
-⚡ Prompt Engineering Certification  
-📢 Digital Marketing Certification`,
+🧠 AI & Data Science Certification
+              `,
             },
             {
               title: "Digital Marketing",
@@ -149,39 +149,32 @@ export default function SkillsSection() {
               desc: "🚀 Click to view my GitHub projects",
               link: "https://github.com/YOUR-USERNAME",
             },
-          ].map((item, i) => {
-            const Card = (
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4 }}
-                className="relative group"
-              >
-                <div className="absolute -inset-1 bg-gradient-to-r 
-                from-green-400 via-blue-500 to-purple-600 
-                rounded-2xl blur opacity-20 group-hover:opacity-60 transition"></div>
+          ].map((item, i) => (
+            <motion.a
+              key={i}
+              href={item.link || "#"}
+              target="_blank"
+              whileHover={{ scale: 1.05 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              className="relative group block"
+            >
+              <div className="absolute -inset-1 bg-gradient-to-r 
+              from-green-400 via-blue-500 to-purple-600 
+              rounded-2xl blur opacity-20 group-hover:opacity-60 transition"></div>
 
-                <div className="relative bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-xl h-full">
-                  <h3 className="text-lg sm:text-xl font-semibold mb-3 text-white">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-400 text-sm sm:text-base whitespace-pre-line leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              </motion.div>
-            );
-
-            return item.link ? (
-              <a key={i} href={item.link} target="_blank">
-                {Card}
-              </a>
-            ) : (
-              <div key={i}>{Card}</div>
-            );
-          })}
+              <div className="relative bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-xl h-full whitespace-pre-line">
+                <h3 className="text-lg sm:text-xl font-semibold mb-2 text-white">
+                  {item.title}
+                </h3>
+                <p className="text-gray-400 text-sm sm:text-base">
+                  {item.desc}
+                </p>
+              </div>
+            </motion.a>
+          ))}
         </div>
       </section>
 
