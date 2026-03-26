@@ -128,11 +128,17 @@ export default function SkillsSection() {
             {
               title: "LinkedIn",
               desc: "🔗 Click to view my LinkedIn profile",
-              link: "https://www.linkedin.com/",
+              link: "https://www.linkedin.com/in/YOUR-USERNAME",
             },
             {
               title: "Certifications",
-              desc: "📜 Google Data Analytics, SQL (HackerRank), AI, Data Science, Prompt Engineering & Digital Marketing",
+              desc: `
+📊 Google Data Analytics Certification  
+💻 SQL (HackerRank Certified)  
+🧠 AI & Data Science Certification  
+⚡ Prompt Engineering Certification  
+📢 Digital Marketing Certification
+              `,
             },
             {
               title: "Digital Marketing",
@@ -141,7 +147,7 @@ export default function SkillsSection() {
             {
               title: "GitHub",
               desc: "🚀 Click to view my GitHub projects",
-              link: "https://github.com/",
+              link: "https://github.com/YOUR-USERNAME",
             },
           ].map((item, i) => (
             <motion.a
@@ -159,7 +165,7 @@ export default function SkillsSection() {
               from-green-400 via-blue-500 to-purple-600 
               rounded-2xl blur opacity-20 group-hover:opacity-60 transition"></div>
 
-              <div className="relative bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-xl h-full">
+              <div className="relative bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-xl h-full whitespace-pre-line">
                 <h3 className="text-lg sm:text-xl font-semibold mb-2 text-white">
                   {item.title}
                 </h3>
