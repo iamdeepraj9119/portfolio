@@ -1,61 +1,33 @@
-<section className="relative w-full h-screen overflow-hidden flex items-center justify-center">
+import Navbar from "./components/Navbar";
+import ScrollyCanvas from "./components/ScrollyCanvas";
+import Overlay from "./components/Overlay";
+import Projects from "./components/Projects";
+import Sections from "./components/Sections";
 
-  {/* BACKGROUND IMAGE + CANVAS */}
-  <div className="absolute inset-0 w-full h-full -z-10">
+export default function Home() {
+  return (
+    <main className="relative bg-[#121212] min-h-screen">
 
-    {/* Image */}
-    <img
-      src="/your-image.jpg" // 👈 apni image path
-      alt="Deepraj"
-      className="w-full h-full object-cover object-center"
-    />
+      {/* 🔥 Navbar */}
+      <Navbar />
 
-    {/* Overlay Gradient */}
-    <div className="absolute inset-0 bg-black/50"></div>
+      {/* ✅ ONLY animation here */}
+      <section className="relative w-full pt-20">
+        <ScrollyCanvas />
+        <Overlay />
+      </section>
 
-    {/* Optional animation */}
-    <ScrollyCanvas />
-  </div>
+      {/* ✅ Sections */}
+      <Sections />
 
-  {/* HERO BOX */}
-  <div className="px-4 w-full flex justify-center">
+      {/* ✅ Projects */}
+      <Projects />
 
-    <div className="bg-white/10 backdrop-blur-xl border border-white/20 px-5 py-6 sm:px-8 sm:py-8 md:px-10 md:py-10 rounded-2xl shadow-2xl max-w-[90vw] sm:max-w-xl text-center">
+      {/* ✅ Footer */}
+      <footer className="w-full py-12 text-center text-white/30 text-sm bg-[#121212] border-t border-white/5">
+        <p>©️ {new Date().getFullYear()} Deepraj Srivastav. All rights reserved.</p>
+      </footer>
 
-      <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold mb-3">
-        Deepraj Srivastav
-      </h1>
-
-      <p className="text-base sm:text-lg md:text-2xl text-blue-400 font-semibold mb-2">
-        Data Analyst | Digital Marketing
-      </p>
-
-      <p className="text-gray-300 text-xs sm:text-sm md:text-base mb-5">
-        Python • SQL • Excel • Power BI <br className="hidden sm:block" />
-        SEO • Google Analytics • Social Media Marketing
-      </p>
-
-      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-
-        <a
-          href="https://github.com/iamdeepraj9119"
-          target="_blank"
-          className="px-5 py-2.5 sm:px-6 sm:py-3 bg-white text-black rounded-xl font-medium hover:scale-105 transition"
-        >
-          View GitHub
-        </a>
-
-        <a
-          href="#contact"
-          className="px-5 py-2.5 sm:px-6 sm:py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl font-medium hover:scale-105 transition"
-        >
-          Contact Me
-        </a>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
+    </main>
+  );
+}
