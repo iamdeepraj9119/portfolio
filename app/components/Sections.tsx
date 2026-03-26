@@ -129,7 +129,7 @@ export default function SkillsSection() {
             {
               title: "LinkedIn",
               desc: "🔗 Click to view my LinkedIn profile",
-              link: "https://www.linkedin.com/in/YOUR-USERNAME",
+              link: "https://www.linkedin.com/in/iamdeepraj9119/",
             },
             {
               title: "Certifications",
@@ -148,7 +148,7 @@ export default function SkillsSection() {
             {
               title: "GitHub",
               desc: "🚀 Click to view my GitHub projects",
-              link: "https://github.com/YOUR-USERNAME",
+              link: "https://github.com/iamdeepraj9119",
             },
           ].map((item, i) => (
             <motion.a
@@ -178,7 +178,7 @@ export default function SkillsSection() {
           ))}
         </div>
       </section>
-
+<CertificateGallery />
     </div>
   );
 }
