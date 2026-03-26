@@ -1,5 +1,6 @@
 'use client';
 
+import CertificateGallery from './CertificateGallery';
 import { motion } from 'framer-motion';
 
 export default function SkillsSection() {
