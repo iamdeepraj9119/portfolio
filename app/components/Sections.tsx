@@ -24,9 +24,15 @@ export default function Sections() {
 
           <div className="relative bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-xl">
             <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
-              I am an aspiring Data Analyst currently pursuing MCA in Data Analytics.
-              I have strong skills in Python, SQL, Excel, and Power BI.
-              I enjoy transforming raw data into meaningful insights and dashboards.
+              I am a passionate and detail-oriented Data Analyst currently pursuing MCA in Data Analytics. I specialize in transforming raw data into meaningful insights using Python, SQL, Excel, and Power BI.
+
+              <br /><br />
+
+              Alongside data analytics, I am also exploring Digital Marketing, with hands-on knowledge of SEO, Google Analytics, and Social Media Marketing. This combination helps me understand both data and user behavior effectively.
+
+              <br /><br />
+
+              I am driven by problem-solving, data-driven decision making, and continuously learning new technologies to grow in the field of analytics and digital strategy.
             </p>
           </div>
         </motion.div>
@@ -71,7 +77,6 @@ export default function Sections() {
               className="relative group"
             >
 
-              {/* 🔥 GLOW EFFECT FOR ALL */}
               <div className="absolute -inset-1 bg-gradient-to-r 
               from-blue-500 via-purple-500 to-pink-500 
               rounded-2xl blur opacity-20 group-hover:opacity-60 transition"></div>
@@ -112,7 +117,6 @@ export default function Sections() {
 
             <div className="flex flex-col sm:flex-row gap-4">
 
-              {/* LinkedIn */}
               <a
                 href="https://linkedin.com/in/iamdeepraj9119"
                 target="_blank"
@@ -123,7 +127,6 @@ export default function Sections() {
                 LinkedIn
               </a>
 
-              {/* GitHub */}
               <a
                 href="https://github.com/iamdeepraj9119"
                 target="_blank"
@@ -134,7 +137,6 @@ export default function Sections() {
                 GitHub
               </a>
 
-              {/* Email */}
               <a
                 href="mailto:deeprajsrivastav935@gmail.com"
                 className="flex items-center justify-center gap-2 w-full sm:w-auto px-5 py-3 bg-gradient-to-r from-purple-500 to-pink-500 hover:opacity-90 rounded-xl transition duration-300 hover:scale-105 shadow-lg"
