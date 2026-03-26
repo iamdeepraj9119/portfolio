@@ -11,15 +11,12 @@ export default function Overlay() {
     offset: ['start start', 'end end'],
   });
 
-  // HERO
   const opacity1 = useTransform(scrollYProgress, [0, 0.15, 0.25], [1, 1, 0]);
   const y1 = useTransform(scrollYProgress, [0, 0.25], [0, -100]);
 
-  // SKILLS
   const opacity2 = useTransform(scrollYProgress, [0.25, 0.35, 0.5, 0.6], [0, 1, 1, 0]);
   const y2 = useTransform(scrollYProgress, [0.25, 0.6], [80, -80]);
 
-  // PROJECTS
   const opacity3 = useTransform(scrollYProgress, [0.55, 0.7, 0.9, 1], [0, 1, 1, 0]);
   const y3 = useTransform(scrollYProgress, [0.55, 1], [80, -80]);
 
@@ -38,7 +35,7 @@ export default function Overlay() {
           <div className="bg-black/40 px-5 py-6 sm:px-8 sm:py-8 md:px-12 md:py-10 rounded-2xl backdrop-blur-xl shadow-2xl max-w-[90vw] sm:max-w-xl">
 
             {/* NAME */}
-            <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold text-white tracking-tight leading-tight">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold text-white leading-tight">
               Deepraj Srivastav
             </h1>
 
@@ -48,26 +45,45 @@ export default function Overlay() {
             </p>
 
             {/* SKILLS */}
-            <p className="text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed mt-3">
+            <p className="text-gray-300 text-xs sm:text-sm md:text-base mt-3">
               Python • SQL • Excel • Power BI <br className="hidden sm:block" />
               SEO • Google Analytics • Social Media Marketing
             </p>
 
+            {/* 🔥 CTA BUTTONS */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mt-6 pointer-events-auto">
+
+              <a
+                href="#projects"
+                className="px-5 py-2.5 sm:px-6 sm:py-3 bg-white text-black rounded-xl font-medium hover:scale-105 transition text-sm sm:text-base"
+              >
+                View Projects
+              </a>
+
+              <a
+                href="#contact"
+                className="px-5 py-2.5 sm:px-6 sm:py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl font-medium hover:scale-105 transition text-sm sm:text-base text-white"
+              >
+                Contact Me
+              </a>
+
+            </div>
+
           </div>
         </motion.div>
 
-        {/* 🔥 SKILLS LEFT */}
+        {/* 🔥 SKILLS */}
         <motion.div
           style={{ opacity: opacity2, y: y2 }}
-          className="absolute inset-0 flex items-center justify-start px-4 sm:px-6 md:px-24"
+          className="absolute inset-0 flex items-center justify-center md:justify-start px-4 md:px-24"
         >
           <div className="bg-black/40 backdrop-blur-xl p-6 sm:p-8 rounded-2xl shadow-xl text-white max-w-[90vw] sm:max-w-xl">
 
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-400 mb-4 sm:mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-400 mb-4">
               Skills & Experience
             </h2>
 
-            <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base md:text-lg text-gray-300">
+            <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-gray-300">
               <li>📊 Python, Pandas, NumPy, SQL</li>
               <li>📈 Power BI, Dashboards</li>
               <li>💻 Django Intern – Digipodium</li>
@@ -78,18 +94,18 @@ export default function Overlay() {
           </div>
         </motion.div>
 
-        {/* 🔥 PROJECTS RIGHT */}
+        {/* 🔥 PROJECTS */}
         <motion.div
           style={{ opacity: opacity3, y: y3 }}
-          className="absolute inset-0 flex items-center justify-end px-4 sm:px-6 md:px-24"
+          className="absolute inset-0 flex items-center justify-center md:justify-end px-4 md:px-24"
         >
-          <div className="bg-black/40 backdrop-blur-xl p-6 sm:p-8 rounded-2xl shadow-xl text-white max-w-[90vw] sm:max-w-xl text-right">
+          <div className="bg-black/40 backdrop-blur-xl p-6 sm:p-8 rounded-2xl shadow-xl text-white max-w-[90vw] sm:max-w-xl md:text-right">
 
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-green-400 mb-4 sm:mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-green-400 mb-4">
               Projects
             </h2>
 
-            <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base md:text-lg text-gray-300">
+            <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-gray-300">
               <li>📊 HR Data Analytics</li>
               <li>📈 E-Commerce Dashboard</li>
               <li>🧠 CodeSweep (Django)</li>
