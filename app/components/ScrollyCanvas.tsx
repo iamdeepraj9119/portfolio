@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useScroll, useTransform } from 'framer-motion';
 
-const FRAME_COUNT = 18; // 🔥 total images count (0–17)
+const FRAME_COUNT = 18;
 
 const getFramePath = (index: number) => {
   const formattedIndex = index.toString().padStart(2, '0');
@@ -14,22 +14,17 @@ export default function ScrollyCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [images, setImages] = useState<HTMLImageElement[]>([]);
-  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start start', 'end end'],
   });
 
-  const frameIndex = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0, FRAME_COUNT - 1]
-  );
+  const frameIndex = useTransform(scrollYProgress, [0, 1], [0, FRAME_COUNT - 1]);
 
-  // 🔥 preload images
   useEffect(() => {
-    let loadedCount = 0;
+    let count = 0;
     const imgs: HTMLImageElement[] = [];
 
     for (let i = 0; i < FRAME_COUNT; i++) {
@@ -37,18 +32,8 @@ export default function ScrollyCanvas() {
       img.src = getFramePath(i);
 
       img.onload = () => {
-        loadedCount++;
-        if (loadedCount === FRAME_COUNT) {
-          setImagesLoaded(true);
-        }
-      };
-
-      img.onerror = () => {
-        console.log('Error loading:', img.src);
-        loadedCount++;
-        if (loadedCount === FRAME_COUNT) {
-          setImagesLoaded(true);
-        }
+        count++;
+        if (count === FRAME_COUNT) setLoaded(true);
       };
 
       imgs.push(img);
@@ -57,39 +42,27 @@ export default function ScrollyCanvas() {
     setImages(imgs);
   }, []);
 
-  // 🔥 draw image on canvas
   useEffect(() => {
-    if (!imagesLoaded) return;
+    if (!loaded) return;
 
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    const ctx = canvas?.getContext('2d');
+    if (!canvas || !ctx) return;
 
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    const render = (index: number) => {
-      const img = images[Math.floor(index)];
+    const render = (i: number) => {
+      const img = images[Math.floor(i)];
       if (!img) return;
 
-      const canvasWidth = canvas.width;
-      const canvasHeight = canvas.height;
-
       const scale = Math.max(
-        canvasWidth / img.width,
-        canvasHeight / img.height
+        canvas.width / img.width,
+        canvas.height / img.height
       );
 
-      const x = (canvasWidth - img.width * scale) / 2;
-      const y = (canvasHeight - img.height * scale) / 2;
+      const x = (canvas.width - img.width * scale) / 2;
+      const y = (canvas.height - img.height * scale) / 2;
 
-      ctx.clearRect(0, 0, canvasWidth, canvasHeight);
-      ctx.drawImage(
-        img,
-        x,
-        y,
-        img.width * scale,
-        img.height * scale
-      );
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
     };
 
     const resize = () => {
@@ -101,22 +74,20 @@ export default function ScrollyCanvas() {
     resize();
     window.addEventListener('resize', resize);
 
-    const unsubscribe = frameIndex.on('change', (latest) => {
-      render(latest);
-    });
+    const unsub = frameIndex.on('change', (v) => render(v));
 
     return () => {
       window.removeEventListener('resize', resize);
-      unsubscribe();
+      unsub();
     };
-  }, [imagesLoaded, images, frameIndex]);
+  }, [loaded, images, frameIndex]);
 
   return (
-    <div ref={containerRef} className="h-[400vh] w-full">
+    <div ref={containerRef} className="h-[300vh] w-full">
       <div className="sticky top-0 h-screen w-full">
         <canvas ref={canvasRef} className="w-full h-full" />
 
-        {!imagesLoaded && (
+        {!loaded && (
           <div className="absolute inset-0 flex items-center justify-center bg-black">
             <p className="text-white/50">Loading...</p>
           </div>
