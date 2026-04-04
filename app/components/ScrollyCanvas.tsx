@@ -5,21 +5,20 @@ import { useEffect, useRef } from 'react';
 const FRAME_COUNT = 74;
 
 const getFramePath = (index: number) => {
-  const i = index.toString().padStart(2, '0');
+  const i = (index + 1).toString().padStart(2, '0'); // 🔥 FIX
   return `/sequence/frame_${i}_delay-0.066s.png`;
 };
 
 export default function ScrollyCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current!;
-    const context = canvas.getContext('2d')!;
+    const ctx = canvas.getContext('2d')!;
 
     const images: HTMLImageElement[] = [];
 
-    // 🔥 preload images
+    // preload
     for (let i = 0; i < FRAME_COUNT; i++) {
       const img = new Image();
       img.src = getFramePath(i);
@@ -33,13 +32,16 @@ export default function ScrollyCanvas() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
 
-      context.clearRect(0, 0, canvas.width, canvas.height);
-      context.drawImage(img, 0, 0, canvas.width, canvas.height);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     };
+
+    images[0].onload = () => render(0);
 
     const handleScroll = () => {
       const scrollTop = window.scrollY;
-      const maxScroll = document.body.scrollHeight - window.innerHeight;
+      const maxScroll =
+        document.body.scrollHeight - window.innerHeight;
 
       const frameIndex = Math.min(
         FRAME_COUNT - 1,
@@ -49,21 +51,15 @@ export default function ScrollyCanvas() {
       render(frameIndex);
     };
 
-    images[0].onload = () => render(0);
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-
   }, []);
 
   return (
-    <div ref={containerRef} className="h-[300vh]">
-
-      {/* 🔥 BACKGROUND FIX */}
+    <div className="h-[300vh]">
       <div className="fixed top-0 left-0 w-full h-full z-0 pointer-events-none">
         <canvas ref={canvasRef} className="w-full h-full" />
       </div>
-
     </div>
   );
 }
