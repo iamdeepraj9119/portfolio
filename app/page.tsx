@@ -1,4 +1,4 @@
-import Sections from "@/components/Sections";
+import Sections from "@/app/components/Sections.tsx";
 
 export default function Page() {
   return (
