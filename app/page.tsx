@@ -7,13 +7,13 @@ export default function Home() {
   return (
     <main className="text-white">
 
-      {/* 🔥 BACKGROUND ANIMATION */}
+      {/* 🔥 Background animation */}
       <ScrollyCanvas />
 
-      {/* 🔥 HERO (GLASS CARD SAME AS IMAGE) */}
+      {/* 🔥 HERO SECTION (same as your old UI) */}
       <section className="h-screen flex items-center justify-center">
 
-        <div className="bg-black/40 backdrop-blur-xl px-10 py-6 rounded-2xl border border-white/10 text-center shadow-xl">
+        <div className="bg-black/40 backdrop-blur-xl px-10 py-6 rounded-2xl border border-white/10 text-center">
 
           <h1 className="text-5xl font-bold">
             Deepraj Srivastav
@@ -36,4 +36,4 @@ export default function Home() {
 
     </main>
   );
-}d
+}
