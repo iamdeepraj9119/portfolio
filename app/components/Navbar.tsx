@@ -36,6 +36,7 @@ export default function Navbar() {
 
     window.addEventListener('scroll', handleScroll);
     handleScroll();
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -56,13 +57,13 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Progress Bar */}
+      {/* 🔥 Progress Bar */}
       <div
         className="fixed top-0 left-0 h-[2px] bg-blue-500 z-[60] transition-all"
         style={{ width: `${progress}%` }}
       />
 
-      {/* Navbar */}
+      {/* 🔥 Navbar */}
       <div
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
           scrolled
@@ -72,7 +73,7 @@ export default function Navbar() {
       >
         <div className="flex justify-between items-center px-6 md:px-20 py-2">
 
-          {/* Logo */}
+          {/* LOGO */}
           <h1
             onClick={() => handleClick('about')}
             className="text-xl font-bold text-white tracking-tight cursor-pointer"
@@ -80,9 +81,10 @@ export default function Navbar() {
             Deepraj Srivastav
           </h1>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex gap-8 text-sm font-medium">
+          {/* DESKTOP MENU */}
+          <div className="hidden md:flex gap-8 text-sm font-medium items-center">
 
+            {/* SCROLL LINKS */}
             {['about', 'skills', 'projects'].map((item) => (
               <div
                 key={item}
@@ -99,9 +101,9 @@ export default function Navbar() {
               </div>
             ))}
 
-            {/* 🔥 NEW LINKS */}
+            {/* 🔥 PAGE LINKS */}
             <Link href="/about" className="text-white/70 hover:text-blue-400">
-              About Page
+              About
             </Link>
 
             <Link href="/contact" className="text-white/70 hover:text-blue-400">
@@ -114,7 +116,7 @@ export default function Navbar() {
 
           </div>
 
-          {/* Mobile Button */}
+          {/* MOBILE BUTTON */}
           <button
             className="md:hidden text-white text-xl"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -124,9 +126,10 @@ export default function Navbar() {
 
         </div>
 
-        {/* Mobile Menu */}
+        {/* 🔥 MOBILE MENU */}
         {menuOpen && (
           <div className="md:hidden bg-black/90 backdrop-blur-lg px-6 py-6 space-y-4 text-center">
+
             {['about', 'skills', 'projects'].map((item) => (
               <div
                 key={item}
@@ -140,9 +143,9 @@ export default function Navbar() {
               </div>
             ))}
 
-            {/* 🔥 MOBILE LINKS */}
+            {/* 🔥 MOBILE PAGE LINKS */}
             <Link href="/about" className="block text-white text-lg hover:text-blue-400">
-              ABOUT PAGE
+              ABOUT
             </Link>
 
             <Link href="/contact" className="block text-white text-lg hover:text-blue-400">
@@ -152,6 +155,7 @@ export default function Navbar() {
             <Link href="/privacy-policy" className="block text-white text-lg hover:text-blue-400">
               PRIVACY
             </Link>
+
           </div>
         )}
       </div>
