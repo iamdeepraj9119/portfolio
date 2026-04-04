@@ -1,15 +1,15 @@
-import ScrollyCanvas from './components/ScrollyCanvas';
-import Sections from './components/Sections';
+import ScrollyCanvas from "@/components/ScrollyCanvas";
+import Sections from "@/components/Sections";
 
 export default function Page() {
   return (
-    <main className="relative bg-black text-white overflow-x-hidden">
+    <main className="relative">
 
-      {/* 🔥 Background Animation */}
+      {/* 🔥 Background Scroll Animation */}
       <ScrollyCanvas />
 
-      {/* 🔥 Content */}
-      <div className="relative z-10">
+      {/* 🔥 Foreground Content */}
+      <div className="relative z-20">
         <Sections />
       </div>
 

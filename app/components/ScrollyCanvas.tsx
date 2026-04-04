@@ -1,101 +1,69 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import { useScroll, useTransform } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 
 const FRAME_COUNT = 74;
 
-// ✅ NO /sequence/ (IMPORTANT FIX)
 const getFramePath = (index: number) => {
-  const i = (index + 1).toString().padStart(2, '0');
-  return `/frame_${i}_delay-0.066s.png`;
+  const i = index.toString().padStart(2, '0');
+  return `/sequence/frame_${i}_delay-0.066s.png`;
 };
 
 export default function ScrollyCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const [images, setImages] = useState<HTMLImageElement[]>([]);
-  const [loaded, setLoaded] = useState(false);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start start', 'end end'],
-  });
-
-  const frameIndex = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0, FRAME_COUNT - 1]
-  );
-
-  // 🔥 PRELOAD IMAGES
   useEffect(() => {
-    const imgs: HTMLImageElement[] = [];
-    let count = 0;
+    const canvas = canvasRef.current!;
+    const context = canvas.getContext('2d')!;
 
+    const images: HTMLImageElement[] = [];
+
+    // 🔥 preload images
     for (let i = 0; i < FRAME_COUNT; i++) {
       const img = new Image();
       img.src = getFramePath(i);
-
-      img.onload = () => {
-        count++;
-        if (count === FRAME_COUNT) setLoaded(true);
-      };
-
-      img.onerror = () => {
-        console.log('❌ Missing:', img.src);
-        count++;
-        if (count === FRAME_COUNT) setLoaded(true);
-      };
-
-      imgs.push(img);
+      images.push(img);
     }
 
-    setImages(imgs);
-  }, []);
-
-  // 🔥 RENDER
-  useEffect(() => {
-    if (!loaded) return;
-
-    const canvas = canvasRef.current!;
-    const ctx = canvas.getContext('2d')!;
-
     const render = (index: number) => {
-      const img = images[Math.floor(index)];
+      const img = images[index];
       if (!img) return;
 
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
 
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.drawImage(img, 0, 0, canvas.width, canvas.height);
     };
 
-    const unsubscribe = frameIndex.on('change', (latest) => {
-      render(latest);
-    });
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const maxScroll = document.body.scrollHeight - window.innerHeight;
 
-    render(0);
+      const frameIndex = Math.min(
+        FRAME_COUNT - 1,
+        Math.floor((scrollTop / maxScroll) * FRAME_COUNT)
+      );
 
-    return () => unsubscribe();
-  }, [loaded, images, frameIndex]);
+      render(frameIndex);
+    };
+
+    images[0].onload = () => render(0);
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+
+  }, []);
 
   return (
-    <div ref={containerRef} className="h-[300vh] w-full">
+    <div ref={containerRef} className="h-[300vh]">
 
-      {/* ✅ FIXED BACKGROUND */}
-      <div className="fixed top-0 left-0 w-full h-full z-0">
+      {/* 🔥 BACKGROUND FIX */}
+      <div className="fixed top-0 left-0 w-full h-full z-0 pointer-events-none">
         <canvas ref={canvasRef} className="w-full h-full" />
       </div>
 
-      {/* 🔥 LOADING */}
-      {!loaded && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black z-50">
-          <p className="text-white animate-pulse">Loading...</p>
-        </div>
-      )}
     </div>
   );
 }
