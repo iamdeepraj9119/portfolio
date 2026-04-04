@@ -1,5 +1,5 @@
-import ScrollyCanvas from "@/components/ScrollyCanvas";
-import Sections from "@/components/Sections";
+import ScrollyCanvas from "./components/ScrollyCanvas";
+import Sections from "./components/Sections";
 
 export default function Page() {
   return (
