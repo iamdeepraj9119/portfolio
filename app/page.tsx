@@ -1,21 +1,24 @@
 'use client';
 
 import ScrollyCanvas from './components/ScrollyCanvas';
-import Sections from './components/Sections';
+import SkillsSection from './components/Sections';
 
 export default function Home() {
   return (
-    <main className="text-white">
+    <main className="relative text-white">
 
-      {/* 🔥 Background animation */}
-      <ScrollyCanvas />
+      {/* 🔥 HERO SECTION */}
+      <section className="h-screen flex items-center justify-center relative text-center">
 
-      {/* 🔥 HERO (ONLY ONE — FIXED) */}
-      <section className="h-screen flex items-center justify-center">
+        {/* 🔥 BACKGROUND ANIMATION */}
+        <div className="absolute inset-0 -z-10">
+          <ScrollyCanvas />
+        </div>
 
-        <div className="bg-black/40 backdrop-blur-xl px-10 py-6 rounded-2xl border border-white/10 text-center shadow-xl">
+        {/* 🔥 GLASS CARD */}
+        <div className="bg-black/40 backdrop-blur-xl px-10 py-6 rounded-2xl border border-white/10 shadow-xl">
 
-          <h1 className="text-5xl font-bold">
+          <h1 className="text-4xl md:text-6xl font-bold">
             Deepraj Srivastav
           </h1>
 
@@ -43,7 +46,7 @@ export default function Home() {
       </section>
 
       {/* बाकी content */}
-      <Sections />
+      <SkillsSection />
 
     </main>
   );
