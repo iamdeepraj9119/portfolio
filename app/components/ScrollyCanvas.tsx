@@ -3,10 +3,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { useScroll, useTransform } from 'framer-motion';
 
-// ⚠️ IMPORTANT: जितनी images हैं उतनी count रखो
-const FRAME_COUNT = 18; 
+const FRAME_COUNT = 18; // 🔥 total images count (0–17)
 
-// ✅ FIXED PATH (sequence add किया)
 const getFramePath = (index: number) => {
   const formattedIndex = index.toString().padStart(2, '0');
   return `/sequence/frame_${formattedIndex}_delay-0.066s.png`;
@@ -26,14 +24,13 @@ export default function ScrollyCanvas() {
   const frameIndex = useTransform(
     scrollYProgress,
     [0, 1],
-    [0, FRAME_COUNT - 1],
-    { clamp: true }
+    [0, FRAME_COUNT - 1]
   );
 
-  // 🔄 preload images
+  // 🔥 preload images
   useEffect(() => {
     let loadedCount = 0;
-    const loadedImages: HTMLImageElement[] = [];
+    const imgs: HTMLImageElement[] = [];
 
     for (let i = 0; i < FRAME_COUNT; i++) {
       const img = new Image();
@@ -47,20 +44,20 @@ export default function ScrollyCanvas() {
       };
 
       img.onerror = () => {
-        console.warn(`Image not loaded: ${img.src}`);
+        console.log('Error loading:', img.src);
         loadedCount++;
         if (loadedCount === FRAME_COUNT) {
           setImagesLoaded(true);
         }
       };
 
-      loadedImages.push(img);
+      imgs.push(img);
     }
 
-    setImages(loadedImages);
+    setImages(imgs);
   }, []);
 
-  // 🎨 draw canvas
+  // 🔥 draw image on canvas
   useEffect(() => {
     if (!imagesLoaded) return;
 
@@ -70,14 +67,9 @@ export default function ScrollyCanvas() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const renderFrame = (index: number) => {
-      const safeIndex = Math.min(
-        Math.max(Math.floor(index), 0),
-        FRAME_COUNT - 1
-      );
-
-      const img = images[safeIndex];
-      if (!img || !img.complete) return;
+    const render = (index: number) => {
+      const img = images[Math.floor(index)];
+      if (!img) return;
 
       const canvasWidth = canvas.width;
       const canvasHeight = canvas.height;
@@ -100,40 +92,33 @@ export default function ScrollyCanvas() {
       );
     };
 
-    const resizeCanvas = () => {
+    const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      renderFrame(frameIndex.get());
+      render(frameIndex.get());
     };
 
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+    resize();
+    window.addEventListener('resize', resize);
 
     const unsubscribe = frameIndex.on('change', (latest) => {
-      renderFrame(latest);
+      render(latest);
     });
 
     return () => {
-      window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener('resize', resize);
       unsubscribe();
     };
   }, [imagesLoaded, images, frameIndex]);
 
   return (
-    <div ref={containerRef} className="relative h-[500vh] w-full bg-[#121212]">
-      
-      <div className="sticky top-0 h-screen w-full overflow-hidden">
-        
-        <canvas
-          ref={canvasRef}
-          className="absolute inset-0 h-full w-full"
-        />
+    <div ref={containerRef} className="h-[400vh] w-full">
+      <div className="sticky top-0 h-screen w-full">
+        <canvas ref={canvasRef} className="w-full h-full" />
 
         {!imagesLoaded && (
-          <div className="absolute inset-0 flex items-center justify-center bg-[#121212] z-50">
-            <p className="text-white/50 animate-pulse">
-              LOADING...
-            </p>
+          <div className="absolute inset-0 flex items-center justify-center bg-black">
+            <p className="text-white/50">Loading...</p>
           </div>
         )}
       </div>
