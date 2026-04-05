@@ -36,60 +36,75 @@ export default function Sections() {
 <motion.section
   initial={{ opacity: 0, y: 50 }}
   animate={{ opacity: 1, y: 0 }}
-  className="min-h-screen flex flex-col justify-center items-center text-center px-4"
+  className="min-h-screen flex flex-col justify-center items-center text-center relative overflow-hidden"
 >
 
-  {/* PROFILE IMAGE */}
-  <div className="relative mb-6 flex items-center justify-center">
-    <div className="absolute w-40 h-40 bg-blue-500/30 blur-2xl rounded-full"></div>
+  {/* 🌌 BACKGROUND GRADIENT */}
+  <div className="absolute inset-0 -z-20 bg-[#0a0a0f]"></div>
 
-    <Image
-      src="/profile.jpg"
-      alt="Deepraj"
-      width={140}
-      height={140}
-      className="rounded-full border-4 border-blue-500 shadow-xl relative z-10 object-cover"
-    />
+  {/* 🔥 GRADIENT LIGHT */}
+  <div className="absolute inset-0 -z-10 bg-gradient-to-br from-black via-[#0a0a0f] to-blue-900/20"></div>
+
+  {/* 💡 GLOW ORB */}
+  <div className="absolute w-72 h-72 bg-blue-500/20 blur-3xl rounded-full top-20 left-1/2 -translate-x-1/2"></div>
+
+  {/* 💎 GLASS CARD */}
+  <div className="relative backdrop-blur-2xl bg-white/5 border border-white/10 rounded-3xl px-10 py-12 shadow-xl">
+
+    {/* ✨ GLASS REFLECTION EFFECT */}
+    <div className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none">
+      <div className="absolute -top-1/2 left-[-50%] w-[200%] h-[200%] bg-gradient-to-r from-transparent via-white/10 to-transparent rotate-12 animate-[shine_6s_linear_infinite]"></div>
+    </div>
+
+    {/* PROFILE IMAGE */}
+    <div className="relative mb-6 flex items-center justify-center">
+      <div className="absolute w-40 h-40 bg-blue-500/30 blur-2xl rounded-full"></div>
+
+      <Image
+        src="/profile.jpg"
+        alt="Deepraj"
+        width={140}
+        height={140}
+        className="rounded-full border-4 border-blue-500 shadow-xl relative z-10 object-cover"
+      />
+    </div>
+
+    {/* NAME */}
+    <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+      Deepraj Srivastava
+    </h1>
+
+    {/* TITLE */}
+    <p className="text-blue-400 text-xl mb-3">
+      Data Analyst | Digital Marketing
+    </p>
+
+    {/* SKILLS */}
+    <p className="text-gray-400 mb-6">
+      Python • SQL • Excel • Power BI <br />
+      SEO • Google Analytics • Social Media Marketing
+    </p>
+
+    {/* BUTTONS */}
+    <div className="flex gap-4 justify-center flex-wrap">
+
+      <a
+        href="#projects"
+        className="px-6 py-2 bg-white text-black rounded-xl hover:scale-105 transition"
+      >
+        View Projects
+      </a>
+
+      <a
+        href="/resume.pdf"
+        download
+        className="px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl hover:opacity-90 transition hover:shadow-[0_0_20px_rgba(59,130,246,0.7)]"
+      >
+        Download Resume
+      </a>
+
+    </div>
   </div>
-
-  {/* NAME */}
-  <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-    Deepraj Srivastav
-  </h1>
-
-  {/* TITLE */}
-  <p className="text-blue-400 text-xl md:text-2xl mb-3 font-medium">
-    Data Analyst | Digital Marketing
-  </p>
-
-  {/* SKILLS LINE */}
-  <p className="text-gray-400 mb-6 max-w-xl">
-    Python • SQL • Excel • Power BI <br />
-    SEO • Google Analytics • Social Media Marketing
-  </p>
-
-  {/* BUTTONS */}
-  <div className="flex gap-4 flex-wrap justify-center">
-
-    {/* View Projects */}
-    <a
-      href="#projects"
-      className="px-6 py-2 bg-white text-black rounded-xl hover:scale-105 transition"
-    >
-      View Projects
-    </a>
-
-    {/* Download Resume */}
-    <a
-      href="/resume.pdf"
-      download
-      className="px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl hover:opacity-90 transition"
-    >
-      Download Resume
-    </a>
-
-  </div>
-
 </motion.section>
         {/* ABOUT */}
 <section id="about">
