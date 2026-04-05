@@ -303,7 +303,7 @@ export default function Sections() {
           <h2 className="text-4xl font-bold mb-6">Contact</h2>
 
           <a
-            href="mailto:deeprajsrivastav935@email.com"
+            href="mailto:deeprajsrivastav935@gmail.com"
             className="px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl"
           >
             Email Me
