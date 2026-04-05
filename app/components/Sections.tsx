@@ -184,17 +184,21 @@ export default function Sections() {
 
         {/* SKILLS OVERVIEW */}
 <section>
-  <h2 className="text-4xl font-bold mb-8">Skills Overview</h2>
+  <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center md:text-left">
+    Skills Overview
+  </h2>
 
-  <div className="h-96 p-6 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 relative overflow-hidden transition hover:shadow-[0_0_40px_rgba(59,130,246,0.3)]">
+  <div className="w-full max-w-5xl mx-auto h-[300px] md:h-96 p-4 md:p-6 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 relative overflow-hidden">
 
-    {/* Glow Background */}
-    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 blur-2xl opacity-50"></div>
+    {/* Glow */}
+    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 blur-2xl opacity-40"></div>
 
     <ResponsiveContainer width="100%" height="100%">
-      <BarChart data={data}>
+      <BarChart
+        data={data}
+        margin={{ top: 10, right: 10, left: -10, bottom: 20 }}
+      >
 
-        {/* Gradient */}
         <defs>
           <linearGradient id="barGradient" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#3b82f6" />
@@ -202,8 +206,16 @@ export default function Sections() {
           </linearGradient>
         </defs>
 
-        <XAxis dataKey="name" stroke="#aaa" />
-        <YAxis stroke="#aaa" />
+        <XAxis
+          dataKey="name"
+          stroke="#aaa"
+          tick={{ fontSize: 10 }}
+        />
+
+        <YAxis
+          stroke="#aaa"
+          tick={{ fontSize: 10 }}
+        />
 
         <Tooltip
           contentStyle={{
@@ -214,13 +226,11 @@ export default function Sections() {
           }}
         />
 
-        {/* ✅ FINAL BAR */}
         <Bar
           dataKey="value"
-          radius={[12, 12, 0, 0]}
+          radius={[10, 10, 0, 0]}
           fill="url(#barGradient)"
-          isAnimationActive={true}
-          className="hover:opacity-80 transition"
+          animationDuration={1200}
         />
 
       </BarChart>
