@@ -82,18 +82,70 @@ export default function Sections() {
           </div>
         </section>
 
-        {/* SKILLS */}
-        <section id="skills">
-          <h2 className="text-4xl font-bold mb-6">Skills</h2>
+       {/* SKILLS */}
+<motion.section
+  id="skills"
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+>
+  <h2 className="text-4xl font-bold mb-10">Skills</h2>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {["Data Analysis", "Data Visualization", "Digital Marketing"].map((skill) => (
-              <div key={skill} className="p-6 rounded-2xl bg-white/10 backdrop-blur-lg hover:scale-105 transition">
-                {skill}
-              </div>
-            ))}
-          </div>
-        </section>
+  <div className="grid md:grid-cols-3 gap-8">
+
+    {/* Data Analysis */}
+    <div className="
+      p-6 rounded-2xl
+      bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-transparent
+      backdrop-blur-xl border border-white/10
+      hover:scale-105 transition-all duration-300
+      hover:shadow-[0_0_40px_rgba(59,130,246,0.4)]
+    ">
+      <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
+        📊 <span>Data Analysis</span>
+      </h3>
+
+      <p className="text-gray-300 text-sm leading-relaxed">
+        Python, Pandas, NumPy, SQL
+      </p>
+    </div>
+
+    {/* Data Visualization */}
+    <div className="
+      p-6 rounded-2xl
+      bg-gradient-to-br from-purple-500/20 via-pink-500/20 to-transparent
+      backdrop-blur-xl border border-white/10
+      hover:scale-105 transition-all duration-300
+      hover:shadow-[0_0_40px_rgba(168,85,247,0.4)]
+    ">
+      <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
+        📈 <span>Data Visualization</span>
+      </h3>
+
+      <p className="text-gray-300 text-sm leading-relaxed">
+        Power BI, Interactive Dashboards
+      </p>
+    </div>
+
+    {/* Digital Marketing */}
+    <div className="
+      p-6 rounded-2xl
+      bg-gradient-to-br from-pink-500/20 via-blue-500/20 to-transparent
+      backdrop-blur-xl border border-white/10
+      hover:scale-105 transition-all duration-300
+      hover:shadow-[0_0_40px_rgba(236,72,153,0.4)]
+    ">
+      <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
+        📢 <span>Digital Marketing</span>
+      </h3>
+
+      <p className="text-gray-300 text-sm leading-relaxed">
+        SEO, Google Analytics, Social Media Marketing
+      </p>
+    </div>
+
+  </div>
+</motion.section>
 
         {/* CHART */}
         <div className="h-80">
