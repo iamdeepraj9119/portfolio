@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
+import { Cell } from "recharts";
 import CertificateGallery from "./CertificateGallery";
 
 // Recharts fix
@@ -147,17 +148,87 @@ export default function Sections() {
   </div>
 </motion.section>
 
-        {/* CHART */}
-        <div className="h-80">
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={data}>
-              <XAxis dataKey="name" stroke="#ccc" />
-              <YAxis stroke="#ccc" />
-              <Tooltip />
-              <Bar dataKey="value" fill="#3b82f6" />
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
+        {/* SKILLS CHART */}
+<motion.section
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+>
+  <h2 className="text-4xl font-bold mb-8">Skills Overview</h2>
+
+  <div className="
+    h-96 p-6 rounded-3xl 
+    bg-gradient-to-br from-white/10 to-white/5 
+    backdrop-blur-xl border border-white/10
+    shadow-[0_0_40px_rgba(59,130,246,0.15)]
+  ">
+
+    <ResponsiveContainer width="100%" height="100%">
+      <BarChart data={data}>
+
+        {/* 🔥 GRADIENT COLORS */}
+        <defs>
+          <linearGradient id="gradient0" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#3b82f6" />
+            <stop offset="100%" stopColor="#9333ea" />
+          </linearGradient>
+
+          <linearGradient id="gradient1" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#06b6d4" />
+            <stop offset="100%" stopColor="#3b82f6" />
+          </linearGradient>
+
+          <linearGradient id="gradient2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#8b5cf6" />
+            <stop offset="100%" stopColor="#ec4899" />
+          </linearGradient>
+
+          <linearGradient id="gradient3" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#22c55e" />
+            <stop offset="100%" stopColor="#3b82f6" />
+          </linearGradient>
+        </defs>
+
+        {/* AXIS */}
+        <XAxis 
+          dataKey="name" 
+          stroke="#aaa" 
+          tick={{ fill: "#ccc", fontSize: 14 }}
+        />
+
+        <YAxis 
+          stroke="#aaa" 
+          tick={{ fill: "#ccc", fontSize: 12 }}
+        />
+
+        {/* TOOLTIP */}
+        <Tooltip
+          contentStyle={{
+            backgroundColor: "#111",
+            border: "1px solid #333",
+            borderRadius: "10px",
+            color: "#fff"
+          }}
+        />
+
+        {/* 🔥 GRADIENT BARS */}
+        <Bar 
+          dataKey="value" 
+          radius={[12, 12, 0, 0]}
+          animationDuration={1200}
+        >
+          {data.map((entry, index) => (
+            <Cell 
+              key={`cell-${index}`} 
+              fill={`url(#gradient${index})`} 
+            />
+          ))}
+        </Bar>
+
+      </BarChart>
+    </ResponsiveContainer>
+  </div>
+</motion.section>
 
        {/* PROJECTS */}
 <motion.section
