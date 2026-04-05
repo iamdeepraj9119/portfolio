@@ -29,8 +29,6 @@ return (
 
   <Navbar />  
 
-  <div className="px-6 md:px-20 pt-32 pb-20 space-y-32">  
-
 <motion.section
 initial={{ opacity: 0, y: 50 }}
 animate={{ opacity: 1, y: 0 }}
@@ -246,6 +244,5 @@ className="min-h-screen flex flex-col justify-center items-center text-center re
 </section>
 
   </div>
-</div>
 );
 }
