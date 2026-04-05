@@ -32,33 +32,65 @@ export default function Sections() {
 
       <div className="px-6 md:px-20 pt-32 pb-20 space-y-32">
 
-        {/* HERO */}
-        <motion.section
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="min-h-screen flex flex-col justify-center items-center text-center"
-        >
-          <Image
-            src="/profile.jpg"
-            alt="profile"
-            width={140}
-            height={140}
-            className="rounded-full border-4 border-blue-500 shadow-lg mb-6"
-          />
+       {/* HERO */}
+<motion.section
+  initial={{ opacity: 0, y: 50 }}
+  animate={{ opacity: 1, y: 0 }}
+  className="min-h-screen flex flex-col justify-center items-center text-center px-4"
+>
 
-          <h1 className="text-5xl md:text-7xl font-bold mb-4">
-            Deepraj Srivastav
-          </h1>
+  {/* PROFILE IMAGE */}
+  <div className="relative mb-6 flex items-center justify-center">
+    <div className="absolute w-40 h-40 bg-blue-500/30 blur-2xl rounded-full"></div>
 
-          <p className="text-blue-400 text-xl mb-3">
-            Data Analyst | Digital Marketing
-          </p>
+    <Image
+      src="/profile.jpg"
+      alt="Deepraj"
+      width={140}
+      height={140}
+      className="rounded-full border-4 border-blue-500 shadow-xl relative z-10 object-cover"
+    />
+  </div>
 
-          <p className="text-gray-400 mb-6 max-w-xl">
-            Turning data into insights using Python, SQL, Excel & Power BI.
-          </p>
-        </motion.section>
+  {/* NAME */}
+  <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+    Deepraj Srivastav
+  </h1>
 
+  {/* TITLE */}
+  <p className="text-blue-400 text-xl md:text-2xl mb-3 font-medium">
+    Data Analyst | Digital Marketing
+  </p>
+
+  {/* SKILLS LINE */}
+  <p className="text-gray-400 mb-6 max-w-xl">
+    Python • SQL • Excel • Power BI <br />
+    SEO • Google Analytics • Social Media Marketing
+  </p>
+
+  {/* BUTTONS */}
+  <div className="flex gap-4 flex-wrap justify-center">
+
+    {/* View Projects */}
+    <a
+      href="#projects"
+      className="px-6 py-2 bg-white text-black rounded-xl hover:scale-105 transition"
+    >
+      View Projects
+    </a>
+
+    {/* Download Resume */}
+    <a
+      href="/resume.pdf"
+      download
+      className="px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl hover:opacity-90 transition"
+    >
+      Download Resume
+    </a>
+
+  </div>
+
+</motion.section>
         {/* ABOUT */}
 <section id="about">
   <h2 className="text-4xl font-bold mb-6">About</h2>
