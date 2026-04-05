@@ -2,27 +2,85 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ROOT COLORS */
 :root {
-  --background: #121212;
+  --background: #0a0a0a;
   --foreground: #ffffff;
 }
 
+/* HTML */
 html {
-  scroll-behavior: smooth; /* 🔥 smooth scroll */
+  scroll-behavior: smooth;
 }
 
+/* BODY */
 body {
   color: var(--foreground);
-  background: var(--background);
+  background: radial-gradient(circle at top, #0f172a, #000);
   font-family: sans-serif;
   margin: 0;
   padding: 0;
   overscroll-behavior: none;
+  overflow-x: hidden;
 
-  cursor: none; /* 🔥 custom cursor enable */
+  cursor: none; /* custom cursor */
 }
 
-/* 🔥 Cursor glow smooth */
+/* 🔥 CURSOR GLOW SMOOTH */
 #cursor-glow {
   transition: all 0.1s ease-out;
+}
+
+/* ========================= */
+/* 🔥 GLASS UI */
+/* ========================= */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ========================= */
+/* ✨ SHINE ANIMATION */
+/* ========================= */
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) rotate(12deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(12deg);
+  }
+}
+
+/* ✅ SHINE EFFECT */
+.shine-effect {
+  animation: shine 5s linear infinite;
+  opacity: 0.5;
+}
+
+/* ========================= */
+/* 🔥 GLOW EFFECT */
+/* ========================= */
+.glow {
+  box-shadow: 0 0 40px rgba(59, 130, 246, 0.25);
+}
+
+/* ========================= */
+/* 🎯 BUTTON PREMIUM */
+/* ========================= */
+.btn-premium {
+  background: linear-gradient(135deg, #3b82f6, #9333ea);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.btn-premium:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
 }
