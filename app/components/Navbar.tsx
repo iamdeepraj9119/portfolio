@@ -58,8 +58,9 @@ export default function Navbar() {
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
 
           {/* LOGO */}
-          <h1 className="font-bold text-lg tracking-wide bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-  Deepraj Srivastav
+         <h1 className="text-lg md:text-xl font-bold bg-gradient-to-r from-blue-400 to-pink-500 bg-clip-text text-transparent">
+  <span className="md:hidden">Deepraj</span>
+  <span className="hidden md:block">Deepraj Srivastav</span>
 </h1>
 
           {/* LINKS */}
