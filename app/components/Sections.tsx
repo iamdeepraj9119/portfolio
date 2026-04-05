@@ -1,19 +1,22 @@
 "use client";
 
-import React from "react";
+import React, { useCallback } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import { Cell } from "recharts";
+import Particles from "@tsparticles/react";
+import { loadSlim } from "@tsparticles/slim";
+import type { Engine } from "@tsparticles/engine";
 import CertificateGallery from "./CertificateGallery";
 
-// Recharts fix
-const BarChart = dynamic(() => import("recharts").then(m => m.BarChart), { ssr: false });
-const Bar = dynamic(() => import("recharts").then(m => m.Bar), { ssr: false });
-const XAxis = dynamic(() => import("recharts").then(m => m.XAxis), { ssr: false });
-const YAxis = dynamic(() => import("recharts").then(m => m.YAxis), { ssr: false });
-const Tooltip = dynamic(() => import("recharts").then(m => m.Tooltip), { ssr: false });
-const ResponsiveContainer = dynamic(() => import("recharts").then(m => m.ResponsiveContainer), { ssr: false });
+// Recharts dynamic imports (SSR fix)
+const BarChart = dynamic(() => import("recharts").then((m) => m.BarChart), { ssr: false });
+const Bar = dynamic(() => import("recharts").then((m) => m.Bar), { ssr: false });
+const XAxis = dynamic(() => import("recharts").then((m) => m.XAxis), { ssr: false });
+const YAxis = dynamic(() => import("recharts").then((m) => m.YAxis), { ssr: false });
+const Tooltip = dynamic(() => import("recharts").then((m) => m.Tooltip), { ssr: false });
+const ResponsiveContainer = dynamic(() => import("recharts").then((m) => m.ResponsiveContainer), { ssr: false });
 
 const data = [
   { name: "SQL", value: 90 },
@@ -23,8 +26,37 @@ const data = [
 ];
 
 export default function Sections() {
+
+  // ✅ FIXED (NO ERROR)
+  const particlesInit = useCallback(async (engine: Engine) => {
+    await loadSlim(engine);
+  }, []);
+
   return (
-    <div className="bg-black text-white scroll-smooth">
+    <div className="bg-black text-white scroll-smooth relative">
+
+      {/* ✅ PARTICLES FIXED */}
+      <Particles
+        id="tsparticles"
+        init={particlesInit}
+        className="absolute inset-0 -z-10"
+        options={{
+          fullScreen: false,
+          background: { color: { value: "#000" } },
+          particles: {
+            number: { value: 40 },
+            color: { value: "#3b82f6" },
+            links: {
+              enable: true,
+              color: "#3b82f6",
+              opacity: 0.3,
+            },
+            move: { enable: true, speed: 1 },
+            opacity: { value: 0.5 },
+            size: { value: 2 },
+          },
+        }}
+      />
 
       {/* NAVBAR */}
       <nav className="fixed w-full top-0 left-0 backdrop-blur-lg bg-white/10 border-b border-white/10 z-50">
@@ -34,6 +66,7 @@ export default function Sections() {
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
           </div>
         </div>
       </nav>
@@ -46,15 +79,19 @@ export default function Sections() {
           animate={{ opacity: 1, y: 0 }}
           className="min-h-screen flex flex-col justify-center items-center text-center"
         >
-          <Image
-            src="/profile.jpg"
-            alt="Deepraj"
-            width={150}
-            height={150}
-            className="rounded-full border-4 border-blue-500 shadow-lg mb-6"
-          />
+          <div className="relative mb-6 flex items-center justify-center">
+            <div className="absolute w-40 h-40 bg-blue-500/30 blur-2xl rounded-full"></div>
 
-          <h1 className="text-5xl md:text-7xl font-bold mb-4">
+            <Image
+              src="/profile.jpg"
+              alt="Deepraj"
+              width={140}
+              height={140}
+              className="rounded-full border-4 border-blue-500 shadow-xl relative z-10 object-cover"
+            />
+          </div>
+
+          <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
             Deepraj Srivastav
           </h1>
 
@@ -66,9 +103,19 @@ export default function Sections() {
             Turning data into insights using Python, SQL, Excel & Power BI.
           </p>
 
-          <a href="#projects" className="px-6 py-2 bg-white text-black rounded-xl hover:scale-105 transition">
-            View Projects
-          </a>
+          <div className="flex gap-4">
+            <a href="#projects" className="px-6 py-2 bg-white text-black rounded-xl hover:scale-105 transition">
+              View Projects
+            </a>
+
+            <a
+              href="/resume.pdf"
+              download
+              className="px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl hover:scale-105 transition"
+            >
+              Download Resume
+            </a>
+          </div>
         </motion.section>
 
         {/* ABOUT */}
@@ -83,241 +130,70 @@ export default function Sections() {
           </div>
         </section>
 
-       {/* SKILLS */}
-<motion.section
-  id="skills"
-  initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6 }}
->
-  <h2 className="text-4xl font-bold mb-10">Skills</h2>
+        {/* SKILLS */}
+        <section id="skills">
+          <h2 className="text-4xl font-bold mb-10">Skills</h2>
 
-  <div className="grid md:grid-cols-3 gap-8">
-
-    {/* Data Analysis */}
-    <div className="
-      p-6 rounded-2xl
-      bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-transparent
-      backdrop-blur-xl border border-white/10
-      hover:scale-105 transition-all duration-300
-      hover:shadow-[0_0_40px_rgba(59,130,246,0.4)]
-    ">
-      <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
-        📊 <span>Data Analysis</span>
-      </h3>
-
-      <p className="text-gray-300 text-sm leading-relaxed">
-        Python, Pandas, NumPy, SQL
-      </p>
-    </div>
-
-    {/* Data Visualization */}
-    <div className="
-      p-6 rounded-2xl
-      bg-gradient-to-br from-purple-500/20 via-pink-500/20 to-transparent
-      backdrop-blur-xl border border-white/10
-      hover:scale-105 transition-all duration-300
-      hover:shadow-[0_0_40px_rgba(168,85,247,0.4)]
-    ">
-      <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
-        📈 <span>Data Visualization</span>
-      </h3>
-
-      <p className="text-gray-300 text-sm leading-relaxed">
-        Power BI, Interactive Dashboards
-      </p>
-    </div>
-
-    {/* Digital Marketing */}
-    <div className="
-      p-6 rounded-2xl
-      bg-gradient-to-br from-pink-500/20 via-blue-500/20 to-transparent
-      backdrop-blur-xl border border-white/10
-      hover:scale-105 transition-all duration-300
-      hover:shadow-[0_0_40px_rgba(236,72,153,0.4)]
-    ">
-      <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
-        📢 <span>Digital Marketing</span>
-      </h3>
-
-      <p className="text-gray-300 text-sm leading-relaxed">
-        SEO, Google Analytics, Social Media Marketing
-      </p>
-    </div>
-
-  </div>
-</motion.section>
-
-        {/* SKILLS CHART */}
-<motion.section
-  initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6 }}
->
-  <h2 className="text-4xl font-bold mb-8">Skills Overview</h2>
-
-  <div className="
-    h-96 p-6 rounded-3xl 
-    bg-gradient-to-br from-white/10 to-white/5 
-    backdrop-blur-xl border border-white/10
-    shadow-[0_0_40px_rgba(59,130,246,0.15)]
-  ">
-
-    <ResponsiveContainer width="100%" height="100%">
-      <BarChart data={data}>
-
-        {/* 🔥 GRADIENT COLORS */}
-        <defs>
-          <linearGradient id="gradient0" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#3b82f6" />
-            <stop offset="100%" stopColor="#9333ea" />
-          </linearGradient>
-
-          <linearGradient id="gradient1" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#06b6d4" />
-            <stop offset="100%" stopColor="#3b82f6" />
-          </linearGradient>
-
-          <linearGradient id="gradient2" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#8b5cf6" />
-            <stop offset="100%" stopColor="#ec4899" />
-          </linearGradient>
-
-          <linearGradient id="gradient3" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#22c55e" />
-            <stop offset="100%" stopColor="#3b82f6" />
-          </linearGradient>
-        </defs>
-
-        {/* AXIS */}
-        <XAxis 
-          dataKey="name" 
-          stroke="#aaa" 
-          tick={{ fill: "#ccc", fontSize: 14 }}
-        />
-
-        <YAxis 
-          stroke="#aaa" 
-          tick={{ fill: "#ccc", fontSize: 12 }}
-        />
-
-        {/* TOOLTIP */}
-        <Tooltip
-          contentStyle={{
-            backgroundColor: "#111",
-            border: "1px solid #333",
-            borderRadius: "10px",
-            color: "#fff"
-          }}
-        />
-
-        {/* 🔥 GRADIENT BARS */}
-        <Bar 
-          dataKey="value" 
-          radius={[12, 12, 0, 0]}
-          animationDuration={1200}
-        >
-          {data.map((entry, index) => (
-            <Cell 
-              key={`cell-${index}`} 
-              fill={`url(#gradient${index})`} 
-            />
-          ))}
-        </Bar>
-
-      </BarChart>
-    </ResponsiveContainer>
-  </div>
-</motion.section>
-
-       {/* PROJECTS */}
-<motion.section
-  id="projects"
-  initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6 }}
->
-  <h2 className="text-4xl font-bold mb-10">Projects</h2>
-
-  <div className="grid md:grid-cols-3 gap-6">
-
-    {/* Project 1 */}
-    <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/10 hover:scale-105 transition">
-      <h3 className="text-xl font-semibold mb-2">
-        HR Data Analytics
-      </h3>
-
-      <p className="text-gray-400 text-sm mb-6">
-        Employee attrition analysis using Excel & Python
-      </p>
-
-      <a
-        href="https://github.com/yourusername/hr-analytics"
-        target="_blank"
-        className="block text-center py-2 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition"
-      >
-        🚀 View Project
-      </a>
-    </div>
-
-    {/* Project 2 */}
-    <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/10 hover:scale-105 transition">
-      <h3 className="text-xl font-semibold mb-2">
-        E-Commerce Dashboard
-      </h3>
-
-      <p className="text-gray-400 text-sm mb-6">
-        Power BI dashboard for business insights
-      </p>
-
-      <a
-        href="https://github.com/yourusername/ecommerce-dashboard"
-        target="_blank"
-        className="block text-center py-2 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition"
-      >
-        🚀 View Project
-      </a>
-    </div>
-
-    {/* Project 3 */}
-    <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/10 hover:scale-105 transition">
-      <h3 className="text-xl font-semibold mb-2">
-        CodeSweep
-      </h3>
-
-      <p className="text-gray-400 text-sm mb-6">
-        Django tool to remove unused code
-      </p>
-
-      <a
-        href="https://github.com/yourusername/codesweep"
-        target="_blank"
-        className="block text-center py-2 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition"
-      >
-        🚀 View Project
-      </a>
-    </div>
-
-  </div>
-</motion.section>
-
-        {/* ACHIEVEMENTS */}
-        <section>
-          <h2 className="text-4xl font-bold text-center mb-10">
-            Achievements & Proof
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {["Internship", "Certifications", "Projects", "Marketing", "LinkedIn", "GitHub"].map((item) => (
-              <div key={item} className="p-6 rounded-2xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-lg hover:scale-105 transition">
-                {item}
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { title: "Data Analysis", desc: "Python, Pandas, SQL" },
+              { title: "Data Visualization", desc: "Power BI, Dashboards" },
+              { title: "Digital Marketing", desc: "SEO, Analytics" },
+            ].map((item, i) => (
+              <div key={i} className="p-6 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/10 hover:scale-105 transition">
+                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                <p className="text-gray-300 text-sm">{item.desc}</p>
               </div>
             ))}
           </div>
         </section>
 
+        {/* CHART */}
+        <section>
+          <h2 className="text-4xl font-bold mb-8">Skills Overview</h2>
+
+          <div className="h-96 p-6 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={data}>
+                <XAxis dataKey="name" stroke="#ccc" />
+                <YAxis stroke="#ccc" />
+                <Tooltip />
+
+                <Bar dataKey="value" radius={[10, 10, 0, 0]}>
+                  {data.map((_, index) => (
+                    <Cell key={index} fill="#3b82f6" />
+                  ))}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        </section>
+
+        {/* PROJECTS */}
+        <section id="projects">
+          <h2 className="text-4xl font-bold mb-10">Projects</h2>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/10 hover:scale-105 transition">
+              <h3 className="text-xl font-semibold mb-2">HR Analytics</h3>
+              <p className="text-gray-400 text-sm mb-4">Employee insights</p>
+              <a href="https://github.com/" target="_blank" className="block text-center py-2 bg-blue-500 rounded-xl">
+                View Project
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* CERTIFICATES */}
         <CertificateGallery />
+
+        {/* CONTACT */}
+        <section id="contact" className="text-center">
+          <h2 className="text-4xl font-bold mb-6">Contact</h2>
+          <a href="mailto:your@email.com" className="px-6 py-2 bg-blue-500 rounded-xl">
+            Email Me
+          </a>
+        </section>
 
       </div>
     </div>
