@@ -60,40 +60,80 @@ export default function Sections() {
         </motion.section>
 
         {/* ABOUT */}
-        <section id="about">
-          <h2 className="text-4xl font-bold mb-6">About</h2>
+<section id="about">
+  <h2 className="text-4xl font-bold mb-6">About</h2>
 
-          <div className="max-w-3xl p-6 rounded-2xl bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 backdrop-blur-lg border border-white/10">
-            <p className="text-gray-300">
-              I am an aspiring Data Analyst skilled in Python, SQL, Excel, and Power BI.
-              I also have knowledge of Digital Marketing including SEO and Analytics.
-            </p>
-          </div>
-        </section>
+  <div className="
+    max-w-3xl p-6 rounded-2xl
+    bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20
+    backdrop-blur-xl border border-white/10
+    shadow-[0_0_40px_rgba(168,85,247,0.3)]
+  ">
+    <p className="text-gray-200 leading-relaxed">
+      I am an aspiring Data Analyst currently pursuing MCA in Data Analytics.
+      I have strong skills in Python, SQL, Excel, and Power BI. Along with data analytics,
+      I also have knowledge of Digital Marketing including SEO, Google Analytics,
+      and Social Media Marketing. I enjoy transforming raw data into meaningful insights.
+    </p>
+  </div>
+</section>
 
-        {/* SKILLS */}
-        <section id="skills">
-          <h2 className="text-4xl font-bold mb-10">Skills</h2>
+{/* SKILLS */}
+<section id="skills">
+  <h2 className="text-4xl font-bold mb-10">Skills</h2>
 
-          <div className="grid md:grid-cols-3 gap-8">
+  <div className="grid md:grid-cols-3 gap-8">
 
-            <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/10 hover:scale-105 transition">
-              <h3 className="text-xl font-semibold mb-2">Data Analysis</h3>
-              <p className="text-gray-300 text-sm">Python, Pandas, SQL</p>
-            </div>
+    {/* Card 1 */}
+    <div className="
+      p-6 rounded-2xl
+      bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-transparent
+      backdrop-blur-xl border border-white/10
+      hover:scale-105 transition-all duration-300
+      hover:shadow-[0_0_40px_rgba(59,130,246,0.4)]
+    ">
+      <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
+        📊 Data Analysis
+      </h3>
+      <p className="text-gray-300 text-sm">
+        Python, Pandas, NumPy, SQL
+      </p>
+    </div>
 
-            <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/10 hover:scale-105 transition">
-              <h3 className="text-xl font-semibold mb-2">Data Visualization</h3>
-              <p className="text-gray-300 text-sm">Power BI, Dashboards</p>
-            </div>
+    {/* Card 2 */}
+    <div className="
+      p-6 rounded-2xl
+      bg-gradient-to-br from-purple-500/20 via-pink-500/20 to-transparent
+      backdrop-blur-xl border border-white/10
+      hover:scale-105 transition-all duration-300
+      hover:shadow-[0_0_40px_rgba(168,85,247,0.4)]
+    ">
+      <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
+        📈 Data Visualization
+      </h3>
+      <p className="text-gray-300 text-sm">
+        Power BI, Interactive Dashboards
+      </p>
+    </div>
 
-            <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/10 hover:scale-105 transition">
-              <h3 className="text-xl font-semibold mb-2">Digital Marketing</h3>
-              <p className="text-gray-300 text-sm">SEO, Analytics</p>
-            </div>
+    {/* Card 3 */}
+    <div className="
+      p-6 rounded-2xl
+      bg-gradient-to-br from-pink-500/20 via-blue-500/20 to-transparent
+      backdrop-blur-xl border border-white/10
+      hover:scale-105 transition-all duration-300
+      hover:shadow-[0_0_40px_rgba(236,72,153,0.4)]
+    ">
+      <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
+        📢 Digital Marketing
+      </h3>
+      <p className="text-gray-300 text-sm">
+        SEO, Google Analytics, Social Media Marketing
+      </p>
+    </div>
 
-          </div>
-        </section>
+  </div>
+</section>
 
         {/* SKILLS CHART */}
         <section>
