@@ -109,15 +109,37 @@ className="min-h-screen flex flex-col justify-center items-center text-center re
   </div>  
 </section>  
 
-<section id="skills">  
-  <h2 className="text-4xl font-bold mb-10">Skills</h2>  
+<section id="skills">
+  <h2 className="text-4xl font-bold mb-10">Skills</h2>
 
   <div className="grid md:grid-cols-3 gap-8">
 
-  {/* cards same */}  
+    {/* Card 1 */}
+    <div className="p-6 rounded-2xl bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-transparent backdrop-blur-xl border border-white/10 hover:scale-105 transition-all duration-300 hover:shadow-[0_0_40px_rgba(59,130,246,0.4)]">
+      <h3 className="text-xl font-semibold mb-2">📊 Data Analysis</h3>
+      <p className="text-gray-300 text-sm">
+        Python, Pandas, NumPy, SQL
+      </p>
+    </div>
 
-  </div>  
-</section>  
+    {/* Card 2 */}
+    <div className="p-6 rounded-2xl bg-gradient-to-br from-purple-500/20 via-pink-500/20 to-transparent backdrop-blur-xl border border-white/10 hover:scale-105 transition-all duration-300 hover:shadow-[0_0_40px_rgba(168,85,247,0.4)]">
+      <h3 className="text-xl font-semibold mb-2">📈 Data Visualization</h3>
+      <p className="text-gray-300 text-sm">
+        Power BI, Interactive Dashboards
+      </p>
+    </div>
+
+    {/* Card 3 */}
+    <div className="p-6 rounded-2xl bg-gradient-to-br from-pink-500/20 via-blue-500/20 to-transparent backdrop-blur-xl border border-white/10 hover:scale-105 transition-all duration-300 hover:shadow-[0_0_40px_rgba(236,72,153,0.4)]">
+      <h3 className="text-xl font-semibold mb-2">📢 Digital Marketing</h3>
+      <p className="text-gray-300 text-sm">
+        SEO, Google Analytics, Social Media Marketing
+      </p>
+    </div>
+
+  </div>
+</section>
 
 <section>  
   <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center md:text-left">  
@@ -154,7 +176,55 @@ className="min-h-screen flex flex-col justify-center items-center text-center re
   <h2 className="text-4xl font-bold mb-10">Projects</h2>
 
   <div className="grid md:grid-cols-3 gap-8">
-    {/* same projects */}
+
+    {/* Project 1 */}
+    <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:scale-105 transition-all duration-300">
+      <h3 className="text-xl font-semibold mb-2">HR Data Analytics</h3>
+      <p className="text-gray-400 text-sm mb-6">
+        Employee attrition analysis using Excel & Python
+      </p>
+
+      <a
+        href="https://github.com/iamdeepraj9119/HR-DATA-ANALYTICS"
+        target="_blank"
+        className="block text-center py-2 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition"
+      >
+        🔗 View Project
+      </a>
+    </div>
+
+    {/* Project 2 */}
+    <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:scale-105 transition-all duration-300">
+      <h3 className="text-xl font-semibold mb-2">E-Commerce Dashboard</h3>
+      <p className="text-gray-400 text-sm mb-6">
+        Power BI dashboard for business insights
+      </p>
+
+      <a
+        href="https://github.com/iamdeepraj9119/E-Commerce-Sales-Dashboard-Power-BI"
+        target="_blank"
+        className="block text-center py-2 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition"
+      >
+        🔗 View Project
+      </a>
+    </div>
+
+    {/* Project 3 */}
+    <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:scale-105 transition-all duration-300">
+      <h3 className="text-xl font-semibold mb-2">CodeSweep</h3>
+      <p className="text-gray-400 text-sm mb-6">
+        Django tool to remove unused code
+      </p>
+
+      <a
+        href="https://github.com/iamdeepraj9119/Code-Sweep-Project"
+        target="_blank"
+        className="block text-center py-2 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition"
+      >
+        🔗 View Project
+      </a>
+    </div>
+
   </div>
 </section>
 
