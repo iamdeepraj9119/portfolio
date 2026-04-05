@@ -1,3 +1,4 @@
+"use client";
 import React from 'react'; import { motion } from 'framer-motion'; import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 const data = [ { name: 'SQL', value: 90 }, { name: 'Python', value: 85 }, { name: 'Excel', value: 95 }, { name: 'Power BI', value: 80 } ];
