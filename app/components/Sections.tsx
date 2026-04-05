@@ -39,26 +39,25 @@ export default function Sections() {
 
       {/* 🔥 PARTICLES */}
       <Particles
-        id="tsparticles"
-        onInit={particlesInit}
-        className="absolute inset-0 -z-10"
-        options={{
-          fullScreen: false,
-          background: { color: "#000" },
-          particles: {
-            number: { value: 40 },
-            color: { value: "#3b82f6" },
-            links: {
-              enable: true,
-              color: "#3b82f6",
-              opacity: 0.3,
-            },
-            move: { enable: true, speed: 1 },
-            opacity: { value: 0.5 },
-            size: { value: 2 },
-          },
-        }}
-      />
+  id="tsparticles"
+  className="absolute inset-0 -z-10"
+  options={{
+    fullScreen: false,
+    background: { color: "#000" },
+    particles: {
+      number: { value: 40 },
+      color: { value: "#3b82f6" },
+      links: {
+        enable: true,
+        color: "#3b82f6",
+        opacity: 0.3,
+      },
+      move: { enable: true, speed: 1 },
+      opacity: { value: 0.5 },
+      size: { value: 2 },
+    },
+  }}
+/>
 
       <div className="px-6 md:px-20 pt-32 pb-20 space-y-32">
 
