@@ -5,9 +5,13 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import { Cell } from "recharts";
-import Particles from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import CertificateGallery from "./CertificateGallery";
+
+// ✅ FIX: Particles dynamic import (IMPORTANT)
+const Particles = dynamic(() => import("@tsparticles/react"), {
+  ssr: false,
+});
 
 // Recharts dynamic imports (SSR fix)
 const BarChart = dynamic(() => import("recharts").then((m) => m.BarChart), { ssr: false });
@@ -26,7 +30,6 @@ const data = [
 
 export default function Sections() {
 
-  // ✅ FIXED (NO ERROR)
   const particlesInit = useCallback(async (engine: any) => {
     await loadSlim(engine);
   }, []);
@@ -37,7 +40,7 @@ export default function Sections() {
       {/* 🔥 PARTICLES */}
       <Particles
         id="tsparticles"
-        init={particlesInit}
+        onInit={particlesInit}
         className="absolute inset-0 -z-10"
         options={{
           fullScreen: false,
@@ -65,8 +68,6 @@ export default function Sections() {
           animate={{ opacity: 1, y: 0 }}
           className="min-h-screen flex flex-col justify-center items-center text-center"
         >
-
-          {/* IMAGE */}
           <div className="relative mb-6 flex items-center justify-center">
             <div className="absolute w-40 h-40 bg-blue-500/30 blur-2xl rounded-full"></div>
 
@@ -109,7 +110,6 @@ export default function Sections() {
         {/* ABOUT */}
         <section id="about">
           <h2 className="text-4xl font-bold mb-6">About</h2>
-
           <div className="max-w-3xl p-6 rounded-2xl bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 backdrop-blur-lg border border-white/10">
             <p className="text-gray-300">
               I am an aspiring Data Analyst skilled in Python, SQL, Excel, and Power BI.
@@ -121,7 +121,6 @@ export default function Sections() {
         {/* SKILLS */}
         <section id="skills">
           <h2 className="text-4xl font-bold mb-10">Skills</h2>
-
           <div className="grid md:grid-cols-3 gap-8">
             <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/10 hover:scale-105 transition">
               <h3 className="text-xl font-semibold mb-2">Data Analysis</h3>
@@ -145,28 +144,24 @@ export default function Sections() {
           <h2 className="text-4xl font-bold mb-8">Skills Overview</h2>
 
           <div className="h-96 p-6 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10">
-
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={data}>
                 <XAxis dataKey="name" stroke="#ccc" />
                 <YAxis stroke="#ccc" />
                 <Tooltip />
-
                 <Bar dataKey="value" radius={[10, 10, 0, 0]}>
-                  {data.map((entry, index) => (
+                  {data.map((_, index) => (
                     <Cell key={index} fill="#3b82f6" />
                   ))}
                 </Bar>
               </BarChart>
             </ResponsiveContainer>
-
           </div>
         </section>
 
         {/* PROJECTS */}
         <section id="projects">
           <h2 className="text-4xl font-bold mb-10">Projects</h2>
-
           <div className="grid md:grid-cols-3 gap-6">
             <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/10">
               <h3 className="text-xl font-semibold mb-2">HR Analytics</h3>
@@ -176,7 +171,6 @@ export default function Sections() {
           </div>
         </section>
 
-        {/* CERTIFICATES */}
         <CertificateGallery />
 
         {/* CONTACT */}
