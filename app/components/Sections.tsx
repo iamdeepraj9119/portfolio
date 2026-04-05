@@ -167,29 +167,52 @@ export default function Sections() {
   </div>
 </section>
 
-        {/* SKILLS CHART */}
-        <section>
-          <h2 className="text-4xl font-bold mb-8">Skills Overview</h2>
+        {/* SKILLS OVERVIEW */}
+<section>
+  <h2 className="text-4xl font-bold mb-8">Skills Overview</h2>
 
-          <div className="h-96 p-6 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-xl">
+  <div className="h-96 p-6 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 relative overflow-hidden transition hover:shadow-[0_0_40px_rgba(59,130,246,0.3)]">
 
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={data}>
-                <XAxis dataKey="name" stroke="#ccc" />
-                <YAxis stroke="#ccc" />
-                <Tooltip />
+    {/* Glow Background */}
+    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 blur-2xl opacity-50"></div>
 
-                <Bar dataKey="value" radius={[12, 12, 0, 0]}>
-                  {data.map((entry, index) => (
-                    <Cell key={index} fill="#3b82f6" />
-                  ))}
-                </Bar>
-              </BarChart>
-            </ResponsiveContainer>
+    <ResponsiveContainer width="100%" height="100%">
+      <BarChart data={data}>
 
-          </div>
-        </section>
+        {/* Gradient */}
+        <defs>
+          <linearGradient id="barGradient" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#3b82f6" />
+            <stop offset="100%" stopColor="#9333ea" />
+          </linearGradient>
+        </defs>
 
+        <XAxis dataKey="name" stroke="#aaa" />
+        <YAxis stroke="#aaa" />
+
+        <Tooltip
+          contentStyle={{
+            background: "rgba(0,0,0,0.8)",
+            border: "1px solid rgba(255,255,255,0.1)",
+            borderRadius: "10px",
+            color: "#fff",
+          }}
+        />
+
+        {/* ✅ FINAL BAR */}
+        <Bar
+          dataKey="value"
+          radius={[12, 12, 0, 0]}
+          fill="url(#barGradient)"
+          isAnimationActive={true}
+          className="hover:opacity-80 transition"
+        />
+
+      </BarChart>
+    </ResponsiveContainer>
+
+  </div>
+</section>
        {/* PROJECTS */}
 <section id="projects">
   <h2 className="text-4xl font-bold mb-10">Projects</h2>
