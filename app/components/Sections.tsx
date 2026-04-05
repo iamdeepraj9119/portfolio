@@ -71,7 +71,7 @@ export default function Sections() {
 
     {/* NAME */}
     <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-      Deepraj Srivastava
+      Deepraj Srivastav
     </h1>
 
     {/* TITLE */}
