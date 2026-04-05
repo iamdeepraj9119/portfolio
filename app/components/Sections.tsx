@@ -107,18 +107,76 @@ export default function Sections() {
           </ResponsiveContainer>
         </div>
 
-        {/* PROJECTS */}
-        <section id="projects">
-          <h2 className="text-4xl font-bold mb-6">Projects</h2>
+       {/* PROJECTS */}
+<motion.section
+  id="projects"
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+>
+  <h2 className="text-4xl font-bold mb-10">Projects</h2>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {["HR Analytics", "Sales Dashboard", "Python Analysis"].map((p) => (
-              <div key={p} className="p-6 bg-white/10 rounded-2xl hover:scale-105 transition">
-                {p}
-              </div>
-            ))}
-          </div>
-        </section>
+  <div className="grid md:grid-cols-3 gap-6">
+
+    {/* Project 1 */}
+    <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/10 hover:scale-105 transition">
+      <h3 className="text-xl font-semibold mb-2">
+        HR Data Analytics
+      </h3>
+
+      <p className="text-gray-400 text-sm mb-6">
+        Employee attrition analysis using Excel & Python
+      </p>
+
+      <a
+        href="https://github.com/yourusername/hr-analytics"
+        target="_blank"
+        className="block text-center py-2 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition"
+      >
+        🚀 View Project
+      </a>
+    </div>
+
+    {/* Project 2 */}
+    <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/10 hover:scale-105 transition">
+      <h3 className="text-xl font-semibold mb-2">
+        E-Commerce Dashboard
+      </h3>
+
+      <p className="text-gray-400 text-sm mb-6">
+        Power BI dashboard for business insights
+      </p>
+
+      <a
+        href="https://github.com/yourusername/ecommerce-dashboard"
+        target="_blank"
+        className="block text-center py-2 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition"
+      >
+        🚀 View Project
+      </a>
+    </div>
+
+    {/* Project 3 */}
+    <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/10 hover:scale-105 transition">
+      <h3 className="text-xl font-semibold mb-2">
+        CodeSweep
+      </h3>
+
+      <p className="text-gray-400 text-sm mb-6">
+        Django tool to remove unused code
+      </p>
+
+      <a
+        href="https://github.com/yourusername/codesweep"
+        target="_blank"
+        className="block text-center py-2 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition"
+      >
+        🚀 View Project
+      </a>
+    </div>
+
+  </div>
+</motion.section>
 
         {/* ACHIEVEMENTS */}
         <section>
