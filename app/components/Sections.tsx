@@ -252,7 +252,7 @@ export default function Sections() {
       </p>
 
       <a
-        href="https://your-project-link-1.com"
+        href="https://github.com/iamdeepraj9119/HR-DATA-ANALYTICS"
         target="_blank"
         className="block text-center py-2 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition"
       >
@@ -268,7 +268,7 @@ export default function Sections() {
       </p>
 
       <a
-        href="https://your-project-link-2.com"
+        href="https://github.com/iamdeepraj9119/E-Commerce-Sales-Dashboard-Power-BI"
         target="_blank"
         className="block text-center py-2 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition"
       >
@@ -284,7 +284,7 @@ export default function Sections() {
       </p>
 
       <a
-        href="https://your-project-link-3.com"
+        href="https://github.com/iamdeepraj9119/Code-Sweep-Project"
         target="_blank"
         className="block text-center py-2 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition"
       >
@@ -303,7 +303,7 @@ export default function Sections() {
           <h2 className="text-4xl font-bold mb-6">Contact</h2>
 
           <a
-            href="mailto:your@email.com"
+            href="mailto:deeprajsrivastav935@email.com"
             className="px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl"
           >
             Email Me
