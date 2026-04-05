@@ -158,23 +158,62 @@ export default function Sections() {
           </div>
         </section>
 
-        {/* PROJECTS */}
-        <section id="projects">
-          <h2 className="text-4xl font-bold mb-10">Projects</h2>
+       {/* PROJECTS */}
+<section id="projects">
+  <h2 className="text-4xl font-bold mb-10">Projects</h2>
 
-          <div className="grid md:grid-cols-3 gap-6">
+  <div className="grid md:grid-cols-3 gap-8">
 
-            <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/10 hover:scale-105 transition">
-              <h3 className="text-xl font-semibold mb-2">HR Analytics</h3>
-              <p className="text-gray-400 text-sm mb-4">Employee insights</p>
+    {/* Project 1 */}
+    <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:scale-105 transition-all duration-300">
+      <h3 className="text-xl font-semibold mb-2">HR Data Analytics</h3>
+      <p className="text-gray-400 text-sm mb-6">
+        Employee attrition analysis using Excel & Python
+      </p>
 
-              <a href="#" className="block text-center py-2 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500">
-                View
-              </a>
-            </div>
+      <a
+        href="https://your-project-link-1.com"
+        target="_blank"
+        className="block text-center py-2 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition"
+      >
+        🔗 View Project
+      </a>
+    </div>
 
-          </div>
-        </section>
+    {/* Project 2 */}
+    <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:scale-105 transition-all duration-300">
+      <h3 className="text-xl font-semibold mb-2">E-Commerce Dashboard</h3>
+      <p className="text-gray-400 text-sm mb-6">
+        Power BI dashboard for business insights
+      </p>
+
+      <a
+        href="https://your-project-link-2.com"
+        target="_blank"
+        className="block text-center py-2 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition"
+      >
+        🔗 View Project
+      </a>
+    </div>
+
+    {/* Project 3 */}
+    <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:scale-105 transition-all duration-300">
+      <h3 className="text-xl font-semibold mb-2">CodeSweep</h3>
+      <p className="text-gray-400 text-sm mb-6">
+        Django tool to remove unused code
+      </p>
+
+      <a
+        href="https://your-project-link-3.com"
+        target="_blank"
+        className="block text-center py-2 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition"
+      >
+        🔗 View Project
+      </a>
+    </div>
+
+  </div>
+</section>
 
         {/* CERTIFICATES */}
         <CertificateGallery />
