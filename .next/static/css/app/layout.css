@@ -782,8 +782,14 @@ video {
 .rounded-xl {
   border-radius: 0.75rem;
 }
+.rounded-full {
+  border-radius: 9999px;
+}
 .border {
   border-width: 1px;
+}
+.border-4 {
+  border-width: 4px;
 }
 .border-b {
   border-bottom-width: 1px;
@@ -794,6 +800,10 @@ video {
 }
 .border-white\/10 {
   border-color: rgb(255 255 255 / 0.1);
+}
+.border-blue-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(59 130 246 / var(--tw-border-opacity, 1));
 }
 .bg-\[\#121212\] {
   --tw-bg-opacity: 1;
