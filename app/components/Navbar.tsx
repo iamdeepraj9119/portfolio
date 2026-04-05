@@ -1,164 +1,95 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import Link from 'next/link';
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
-  const [active, setActive] = useState('about');
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [progress, setProgress] = useState(0);
+  const [active, setActive] = useState("about");
+  const [show, setShow] = useState(true);
+  const [lastScroll, setLastScroll] = useState(0);
 
+  // 🔥 Active section highlight
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
+      const sections = ["about", "skills", "projects", "contact"];
 
-      const total = document.body.scrollHeight - window.innerHeight;
-      const current = window.scrollY;
-      setProgress((current / total) * 100);
-
-      const sections = ['about', 'skills', 'projects'];
-
-      sections.forEach((sec) => {
-        const el = document.getElementById(sec);
+      sections.forEach((id) => {
+        const el = document.getElementById(id);
         if (el) {
-          const rect = el.getBoundingClientRect();
+          const top = el.offsetTop - 120;
+          const bottom = top + el.offsetHeight;
 
-          if (
-            rect.top <= window.innerHeight / 2 &&
-            rect.bottom >= window.innerHeight / 2
-          ) {
-            setActive(sec);
+          if (window.scrollY >= top && window.scrollY < bottom) {
+            setActive(id);
           }
         }
       });
+
+      // 🚀 hide/show navbar
+      if (window.scrollY > lastScroll && window.scrollY > 100) {
+        setShow(false);
+      } else {
+        setShow(true);
+      }
+
+      setLastScroll(window.scrollY);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const handleClick = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-      setActive(id);
-    }
-  };
-
-  const linkClass = (section: string) =>
-    `relative cursor-pointer transition duration-300 ${
-      active === section
-        ? 'text-blue-400 font-semibold'
-        : 'text-white/70'
-    } hover:text-blue-400`;
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScroll]);
 
   return (
-    <>
-      {/* 🔥 Progress Bar */}
-      <div
-        className="fixed top-0 left-0 h-[2px] bg-blue-500 z-[60] transition-all"
-        style={{ width: `${progress}%` }}
-      />
+    <nav
+      className={`fixed w-full top-0 left-0 z-50 transition-transform duration-500 ${
+        show ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
+      {/* 🔥 Glow Background */}
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 blur-2xl opacity-60"></div>
 
-      {/* 🔥 Navbar */}
-      <div
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-          scrolled
-            ? 'bg-black/60 backdrop-blur-xl border-b border-white/10'
-            : 'bg-transparent'
-        }`}
-      >
-        <div className="flex justify-between items-center px-6 md:px-20 py-2">
+      {/* 💎 Glass + Neon Border */}
+      <div className="relative backdrop-blur-xl bg-white/5 border-b border-white/10">
+
+        {/* Neon Border */}
+        <div className="absolute inset-0 rounded-b-xl pointer-events-none">
+          <div className="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-pulse"></div>
+        </div>
+
+        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
 
           {/* LOGO */}
-          <h1
-            onClick={() => handleClick('about')}
-            className="text-xl font-bold text-white tracking-tight cursor-pointer"
-          >
-            Deepraj Srivastav
+          <h1 className="font-bold text-lg bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            Deepraj
           </h1>
 
-          {/* DESKTOP MENU */}
-          <div className="hidden md:flex gap-8 text-sm font-medium items-center">
+          {/* LINKS */}
+          <div className="flex gap-8 text-sm">
 
-            {/* SCROLL LINKS */}
-            {['about', 'skills', 'projects'].map((item) => (
-              <div
+            {["about", "skills", "projects", "contact"].map((item) => (
+              <a
                 key={item}
-                onClick={() => handleClick(item)}
-                className={linkClass(item)}
+                href={`#${item}`}
+                className={`relative transition ${
+                  active === item ? "text-white" : "text-gray-400"
+                }`}
               >
                 {item.charAt(0).toUpperCase() + item.slice(1)}
 
+                {/* Active glow underline */}
                 <span
-                  className={`absolute left-0 -bottom-1 h-[2px] bg-blue-400 transition-all duration-300 ${
-                    active === item ? 'w-full' : 'w-0'
+                  className={`absolute left-0 -bottom-1 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300 ${
+                    active === item ? "w-full" : "w-0"
                   }`}
-                />
-              </div>
+                ></span>
+
+                {/* Hover effect */}
+                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-white/50 transition-all duration-300 hover:w-full"></span>
+              </a>
             ))}
 
-            {/* 🔥 PAGE LINKS */}
-            <Link href="/about" className="text-white/70 hover:text-blue-400">
-              About
-            </Link>
-
-            <Link href="/contact" className="text-white/70 hover:text-blue-400">
-              Contact
-            </Link>
-
-            <Link href="/privacy-policy" className="text-white/70 hover:text-blue-400">
-              Privacy
-            </Link>
-
           </div>
-
-          {/* MOBILE BUTTON */}
-          <button
-            className="md:hidden text-white text-xl"
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            ☰
-          </button>
-
         </div>
-
-        {/* 🔥 MOBILE MENU */}
-        {menuOpen && (
-          <div className="md:hidden bg-black/90 backdrop-blur-lg px-6 py-6 space-y-4 text-center">
-
-            {['about', 'skills', 'projects'].map((item) => (
-              <div
-                key={item}
-                onClick={() => {
-                  handleClick(item);
-                  setMenuOpen(false);
-                }}
-                className="block text-white text-lg hover:text-blue-400 transition cursor-pointer"
-              >
-                {item.toUpperCase()}
-              </div>
-            ))}
-
-            {/* 🔥 MOBILE PAGE LINKS */}
-            <Link href="/about" className="block text-white text-lg hover:text-blue-400">
-              ABOUT
-            </Link>
-
-            <Link href="/contact" className="block text-white text-lg hover:text-blue-400">
-              CONTACT
-            </Link>
-
-            <Link href="/privacy-policy" className="block text-white text-lg hover:text-blue-400">
-              PRIVACY
-            </Link>
-
-          </div>
-        )}
       </div>
-    </>
+    </nav>
   );
 }

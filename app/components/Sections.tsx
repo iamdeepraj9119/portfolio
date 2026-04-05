@@ -7,7 +7,6 @@ import dynamic from "next/dynamic";
 import { Cell } from "recharts";
 import Particles from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
-import type { Engine } from "@tsparticles/engine";
 import CertificateGallery from "./CertificateGallery";
 
 // Recharts dynamic imports (SSR fix)
@@ -28,21 +27,21 @@ const data = [
 export default function Sections() {
 
   // ✅ FIXED (NO ERROR)
-  const particlesInit = useCallback(async (engine: Engine) => {
+  const particlesInit = useCallback(async (engine: any) => {
     await loadSlim(engine);
   }, []);
 
   return (
     <div className="bg-black text-white scroll-smooth relative">
 
-      {/* ✅ PARTICLES FIXED */}
+      {/* 🔥 PARTICLES */}
       <Particles
         id="tsparticles"
         init={particlesInit}
         className="absolute inset-0 -z-10"
         options={{
           fullScreen: false,
-          background: { color: { value: "#000" } },
+          background: { color: "#000" },
           particles: {
             number: { value: 40 },
             color: { value: "#3b82f6" },
@@ -58,19 +57,6 @@ export default function Sections() {
         }}
       />
 
-      {/* NAVBAR */}
-      <nav className="fixed w-full top-0 left-0 backdrop-blur-lg bg-white/10 border-b border-white/10 z-50">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-          <h1 className="font-bold text-lg">Deepraj</h1>
-          <div className="flex gap-6 text-sm">
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-          </div>
-        </div>
-      </nav>
-
       <div className="px-6 md:px-20 pt-32 pb-20 space-y-32">
 
         {/* HERO */}
@@ -79,12 +65,14 @@ export default function Sections() {
           animate={{ opacity: 1, y: 0 }}
           className="min-h-screen flex flex-col justify-center items-center text-center"
         >
+
+          {/* IMAGE */}
           <div className="relative mb-6 flex items-center justify-center">
             <div className="absolute w-40 h-40 bg-blue-500/30 blur-2xl rounded-full"></div>
 
             <Image
               src="/profile.jpg"
-              alt="Deepraj"
+              alt="profile"
               width={140}
               height={140}
               className="rounded-full border-4 border-blue-500 shadow-xl relative z-10 object-cover"
@@ -111,7 +99,7 @@ export default function Sections() {
             <a
               href="/resume.pdf"
               download
-              className="px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl hover:scale-105 transition"
+              className="px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl hover:opacity-90 transition"
             >
               Download Resume
             </a>
@@ -135,16 +123,20 @@ export default function Sections() {
           <h2 className="text-4xl font-bold mb-10">Skills</h2>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { title: "Data Analysis", desc: "Python, Pandas, SQL" },
-              { title: "Data Visualization", desc: "Power BI, Dashboards" },
-              { title: "Digital Marketing", desc: "SEO, Analytics" },
-            ].map((item, i) => (
-              <div key={i} className="p-6 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/10 hover:scale-105 transition">
-                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                <p className="text-gray-300 text-sm">{item.desc}</p>
-              </div>
-            ))}
+            <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/10 hover:scale-105 transition">
+              <h3 className="text-xl font-semibold mb-2">Data Analysis</h3>
+              <p className="text-gray-300 text-sm">Python, Pandas, SQL</p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/10 hover:scale-105 transition">
+              <h3 className="text-xl font-semibold mb-2">Data Visualization</h3>
+              <p className="text-gray-300 text-sm">Power BI, Dashboards</p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/10 hover:scale-105 transition">
+              <h3 className="text-xl font-semibold mb-2">Digital Marketing</h3>
+              <p className="text-gray-300 text-sm">SEO, Analytics</p>
+            </div>
           </div>
         </section>
 
@@ -153,6 +145,7 @@ export default function Sections() {
           <h2 className="text-4xl font-bold mb-8">Skills Overview</h2>
 
           <div className="h-96 p-6 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10">
+
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={data}>
                 <XAxis dataKey="name" stroke="#ccc" />
@@ -160,12 +153,13 @@ export default function Sections() {
                 <Tooltip />
 
                 <Bar dataKey="value" radius={[10, 10, 0, 0]}>
-                  {data.map((_, index) => (
+                  {data.map((entry, index) => (
                     <Cell key={index} fill="#3b82f6" />
                   ))}
                 </Bar>
               </BarChart>
             </ResponsiveContainer>
+
           </div>
         </section>
 
@@ -174,12 +168,10 @@ export default function Sections() {
           <h2 className="text-4xl font-bold mb-10">Projects</h2>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/10 hover:scale-105 transition">
+            <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/10">
               <h3 className="text-xl font-semibold mb-2">HR Analytics</h3>
               <p className="text-gray-400 text-sm mb-4">Employee insights</p>
-              <a href="https://github.com/" target="_blank" className="block text-center py-2 bg-blue-500 rounded-xl">
-                View Project
-              </a>
+              <a href="#" className="block text-center py-2 bg-blue-500 rounded-xl">View</a>
             </div>
           </div>
         </section>
