@@ -1,10 +1,4 @@
 {
-  "app\\components\\Sections.tsx -> @tsparticles/react": {
-    "id": "app\\components\\Sections.tsx -> @tsparticles/react",
-    "files": [
-      "static/chunks/_app-pages-browser_node_modules_tsparticles_react_dist_index_js.js"
-    ]
-  },
   "app\\components\\Sections.tsx -> recharts": {
     "id": "app\\components\\Sections.tsx -> recharts",
     "files": [
