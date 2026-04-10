@@ -66,12 +66,11 @@ className="min-h-screen flex flex-col justify-center items-center text-center re
 </h1>  
 
 <p className="text-blue-400 text-xl mb-3">  
-  Data Analyst | Digital Marketing  
+  Data Analyst | Marketing Analytics
 </p>  
 
 <p className="text-gray-400 mb-6">  
-  Python • SQL • Excel • Power BI <br />  
-  SEO • Google Analytics • Social Media Marketing  
+ SQL • Python • Power BI • Excel • Data Visualization • Business Insights  
 </p>  
 
 <div className="flex gap-4 justify-center flex-wrap">  
@@ -101,10 +100,8 @@ className="min-h-screen flex flex-col justify-center items-center text-center re
 
   <div className="max-w-3xl p-6 rounded-2xl bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 backdrop-blur-xl border border-white/10 shadow-[0_0_40px_rgba(168,85,247,0.3)]">  
     <p className="text-gray-200 leading-relaxed">  
-      I am an aspiring Data Analyst currently pursuing MCA in Data Analytics.  
-      I have strong skills in Python, SQL, Excel, and Power BI. Along with data analytics,  
-      I also have knowledge of Digital Marketing including SEO, Google Analytics,  
-      and Social Media Marketing. I enjoy transforming raw data into meaningful insights.  
+      I am an aspiring Data Analyst specializing in Marketing Analytics, transforming raw data into actionable insights and business decisions using SQL, Python, Excel, and Power BI.
+Focused on solving real-world business problems using data and delivering measurable impact.  
     </p>  
   </div>  
 </section>  
