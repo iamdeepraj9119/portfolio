@@ -113,26 +113,26 @@ With a strong foundation in Data Analytics, I use tools like Excel, SQL, and Pow
   <div className="grid md:grid-cols-3 gap-8">
 
     {/* Card 1 */}
-    <div className="p-6 rounded-2xl bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-transparent backdrop-blur-xl border border-white/10 hover:scale-105 transition-all duration-300 hover:shadow-[0_0_40px_rgba(59,130,246,0.4)]">
-      <h3 className="text-xl font-semibold mb-2">📊 Data Analysis</h3>
+     <div className="p-6 rounded-2xl bg-gradient-to-br from-pink-500/20 via-blue-500/20 to-transparent backdrop-blur-xl border border-white/10 hover:scale-105 transition-all duration-300 hover:shadow-[0_0_40px_rgba(236,72,153,0.4)]">
+      <h3 className="text-xl font-semibold mb-2">📢 Digital Marketing</h3>
       <p className="text-gray-300 text-sm">
-        Python, Pandas, NumPy, SQL
+        SEO, Google Ads (PPC), Meta Ads, Google Analytics, Performance Marketing
       </p>
     </div>
 
     {/* Card 2 */}
-    <div className="p-6 rounded-2xl bg-gradient-to-br from-purple-500/20 via-pink-500/20 to-transparent backdrop-blur-xl border border-white/10 hover:scale-105 transition-all duration-300 hover:shadow-[0_0_40px_rgba(168,85,247,0.4)]">
-      <h3 className="text-xl font-semibold mb-2">📈 Data Visualization</h3>
+    <div className="p-6 rounded-2xl bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-transparent backdrop-blur-xl border border-white/10 hover:scale-105 transition-all duration-300 hover:shadow-[0_0_40px_rgba(59,130,246,0.4)]">
+      <h3 className="text-xl font-semibold mb-2">📊 Data Analysis</h3>
       <p className="text-gray-300 text-sm">
-        Power BI, Interactive Dashboards
+        Python, Pandas, SQL
       </p>
     </div>
 
     {/* Card 3 */}
-    <div className="p-6 rounded-2xl bg-gradient-to-br from-pink-500/20 via-blue-500/20 to-transparent backdrop-blur-xl border border-white/10 hover:scale-105 transition-all duration-300 hover:shadow-[0_0_40px_rgba(236,72,153,0.4)]">
-      <h3 className="text-xl font-semibold mb-2">📢 Digital Marketing</h3>
+    <div className="p-6 rounded-2xl bg-gradient-to-br from-purple-500/20 via-pink-500/20 to-transparent backdrop-blur-xl border border-white/10 hover:scale-105 transition-all duration-300 hover:shadow-[0_0_40px_rgba(168,85,247,0.4)]">
+      <h3 className="text-xl font-semibold mb-2">📈 Data Visualization</h3>
       <p className="text-gray-300 text-sm">
-        SEO, Google Analytics, Social Media Marketing
+        Power BI, Interactive Dashboards, Data Visualization
       </p>
     </div>
 
