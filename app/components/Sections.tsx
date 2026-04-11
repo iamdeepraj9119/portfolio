@@ -17,10 +17,10 @@ const Tooltip = dynamic(() => import("recharts").then((m) => m.Tooltip), { ssr: 
 const ResponsiveContainer = dynamic(() => import("recharts").then((m) => m.ResponsiveContainer), { ssr: false });
 
 const data = [
-{ name: "SQL", value: 90 },
-{ name: "Python", value: 85 },
-{ name: "Excel", value: 95 },
-{ name: "Power BI", value: 80 },
+{ name: "SEO", value: 90 },
+{ name: "Google Ads (PPC)", value: 88 },
+{ name: "Meta Ads", value: 85 },
+{ name: "Google Analytics", value: 92 },
 ];
 
 export default function Sections() {
