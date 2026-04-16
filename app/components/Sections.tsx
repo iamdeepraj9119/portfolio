@@ -110,10 +110,10 @@ With a strong foundation in Data Analytics, I use tools like Excel, SQL, and Pow
 <section id="skills">
   <h2 className="text-4xl font-bold mb-10">Skills</h2>
 
-  <div className="grid md:grid-cols-3 gap-8">
+  <div className="grid md:grid-cols-4 gap-8">
 
     {/* Card 1 */}
-     <div className="p-6 rounded-2xl bg-gradient-to-br from-pink-500/20 via-blue-500/20 to-transparent backdrop-blur-xl border border-white/10 hover:scale-105 transition-all duration-300 hover:shadow-[0_0_40px_rgba(236,72,153,0.4)]">
+    <div className="p-6 rounded-2xl bg-gradient-to-br from-pink-500/20 via-blue-500/20 to-transparent backdrop-blur-xl border border-white/10 hover:scale-105 transition-all duration-300 hover:shadow-[0_0_40px_rgba(236,72,153,0.4)]">
       <h3 className="text-xl font-semibold mb-2">📢 Digital Marketing</h3>
       <p className="text-gray-300 text-sm">
         SEO, Google Ads (PPC), Meta Ads, Google Analytics, Performance Marketing
@@ -133,6 +133,14 @@ With a strong foundation in Data Analytics, I use tools like Excel, SQL, and Pow
       <h3 className="text-xl font-semibold mb-2">📈 Data Visualization</h3>
       <p className="text-gray-300 text-sm">
         Power BI, Interactive Dashboards, Data Visualization
+      </p>
+    </div>
+
+    {/* ✅ NEW CARD (Web Tools) */}
+    <div className="p-6 rounded-2xl bg-gradient-to-br from-green-500/20 via-teal-500/20 to-transparent backdrop-blur-xl border border-white/10 hover:scale-105 transition-all duration-300 hover:shadow-[0_0_40px_rgba(16,185,129,0.4)]">
+      <h3 className="text-xl font-semibold mb-2">🌐 Web Tools</h3>
+      <p className="text-gray-300 text-sm">
+        WordPress (Website Development), Elementor (Page Builder)
       </p>
     </div>
 
