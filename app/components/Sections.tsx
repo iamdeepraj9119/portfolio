@@ -317,7 +317,7 @@ With a strong foundation in Data Analytics, I use tools like Excel, SQL, and Pow
 
     {/* LinkedIn */}
     <a
-      href="https://linkedin.com/in/YOUR-LINKEDIN"
+      href="https://www.linkedin.com/in/iamdeepraj9119/"
       target="_blank"
       className="px-8 py-3 w-[260px] rounded-full bg-gradient-to-r from-blue-500 to-blue-700 text-white hover:scale-105 transition-all duration-300 hover:shadow-[0_0_25px_rgba(59,130,246,0.5)] flex items-center justify-center gap-3"
     >
