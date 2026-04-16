@@ -356,6 +356,9 @@ With a strong foundation in Data Analytics, I use tools like Excel, SQL, and Pow
 
   </div>
 </section>
+<footer className="text-center mt-20 text-gray-400 text-sm p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10">
+  © 2026 Deepraj Srivastav. All Rights Reserved.
+</footer>
 
   </div>
 </div>
