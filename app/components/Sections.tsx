@@ -283,8 +283,8 @@ With a strong foundation in Data Analytics, I use tools like Excel, SQL, and Pow
 <CertificateGallery />
 
 <section id="contact" className="text-center mt-20 relative overflow-hidden">
-  
-  {/* 🔵 Glow Background */}
+
+  {/* Glow Background */}
   <div className="absolute w-72 h-72 bg-blue-500/20 blur-3xl rounded-full top-10 left-1/2 -translate-x-1/2 -z-10"></div>
 
   <h2 className="text-4xl font-bold mb-10">Connect Me</h2>
@@ -295,29 +295,63 @@ With a strong foundation in Data Analytics, I use tools like Excel, SQL, and Pow
     <a
       href="https://github.com/iamdeepraj9119"
       target="_blank"
-      className="flex items-center gap-4 p-4 w-[300px] rounded-2xl bg-gradient-to-br from-gray-500/20 via-gray-700/20 to-transparent backdrop-blur-xl border border-white/10 hover:scale-105 transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]"
+      className="px-8 py-3 w-[260px] rounded-full bg-white/5 backdrop-blur-xl border border-white/10 hover:scale-105 transition-all duration-300 hover:shadow-[0_0_25px_rgba(255,255,255,0.3)] flex items-center justify-center gap-3"
     >
-      <span className="text-2xl">🐱</span>
-      <span className="text-gray-200">Github</span>
+      {/* GitHub Icon */}
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="w-5 h-5" viewBox="0 0 24 24">
+        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 
+        0-.285-.01-1.04-.015-2.04-3.338.725-4.042-1.61-4.042-1.61-.546-1.385-1.333-1.754-1.333-1.754 
+        -1.09-.745.082-.729.082-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.835 2.807 1.305 3.492.998 
+        .108-.775.418-1.305.76-1.605-2.665-.3-5.467-1.335-5.467-5.93 
+        0-1.31.47-2.38 1.235-3.22-.123-.303-.535-1.523.117-3.176 
+        0 0 1.008-.322 3.3 1.23.957-.266 1.983-.399 3.003-.404 
+        1.02.005 2.047.138 3.006.404 2.28-1.552 3.285-1.23 3.285-1.23 
+        .653 1.653.241 2.873.118 3.176.77.84 1.233 1.91 1.233 3.22 
+        0 4.61-2.807 5.625-5.48 5.92.43.37.823 1.096.823 2.21 
+        0 1.594-.015 2.877-.015 3.27 0 .32.216.694.825.576C20.565 
+        21.795 24 17.296 24 12c0-6.63-5.37-12-12-12z"/>
+      </svg>
+
+      Github
     </a>
 
     {/* LinkedIn */}
     <a
-      href="https://www.linkedin.com/in/iamdeepraj9119/"
+      href="https://linkedin.com/in/YOUR-LINKEDIN"
       target="_blank"
-      className="flex items-center gap-4 p-4 w-[300px] rounded-2xl bg-gradient-to-br from-blue-500/20 via-blue-700/20 to-transparent backdrop-blur-xl border border-white/10 hover:scale-105 transition-all duration-300 hover:shadow-[0_0_30px_rgba(59,130,246,0.4)]"
+      className="px-8 py-3 w-[260px] rounded-full bg-gradient-to-r from-blue-500 to-blue-700 text-white hover:scale-105 transition-all duration-300 hover:shadow-[0_0_25px_rgba(59,130,246,0.5)] flex items-center justify-center gap-3"
     >
-      <span className="text-2xl">💼</span>
-      <span className="text-gray-200">LinkedIn</span>
+      {/* LinkedIn Icon */}
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="w-5 h-5" viewBox="0 0 24 24">
+        <path d="M19 0h-14C2.239 0 0 2.239 0 5v14c0 
+        2.761 2.239 5 5 5h14c2.761 0 5-2.239 
+        5-5V5c0-2.761-2.239-5-5-5zM7.12 
+        20.452H3.56V9h3.56v11.452zM5.34 
+        7.433c-1.138 0-2.06-.922-2.06-2.06 
+        0-1.138.922-2.06 2.06-2.06 
+        1.138 0 2.06.922 2.06 2.06 
+        0 1.138-.922 2.06-2.06 
+        2.06zm15.112 13.019h-3.558v-5.605c0-1.336-.025-3.057-1.865-3.057-1.867 
+        0-2.154 1.459-2.154 2.965v5.697H9.316V9h3.415v1.561h.049c.476-.9 
+        1.637-1.848 3.368-1.848 3.602 0 4.267 2.37 4.267 
+        5.455v6.284z"/>
+      </svg>
+
+      LinkedIn
     </a>
 
     {/* Email */}
     <a
       href="mailto:deeprajsrivastav935@gmail.com"
-      className="flex items-center gap-4 p-4 w-[300px] rounded-2xl bg-gradient-to-br from-pink-500/20 via-red-500/20 to-transparent backdrop-blur-xl border border-white/10 hover:scale-105 transition-all duration-300 hover:shadow-[0_0_30px_rgba(236,72,153,0.4)]"
+      className="px-8 py-3 w-[260px] rounded-full bg-gradient-to-r from-pink-500 to-red-500 text-white hover:scale-105 transition-all duration-300 hover:shadow-[0_0_25px_rgba(236,72,153,0.5)] flex items-center justify-center gap-3"
     >
-      <span className="text-2xl">📧</span>
-      <span className="text-gray-200">deeprajsrivastav935@gmail.com</span>
+      {/* Mail Icon */}
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
+        <path d="M4 4h16v16H4z"/>
+        <path d="M4 4l8 8 8-8"/>
+      </svg>
+
+      Email Me
     </a>
 
   </div>
