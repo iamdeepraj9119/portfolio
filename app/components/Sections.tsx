@@ -282,16 +282,42 @@ With a strong foundation in Data Analytics, I use tools like Excel, SQL, and Pow
 
 <CertificateGallery />
 
-<section id="contact" className="text-center">
-  <h2 className="text-4xl font-bold mb-6">Contact</h2>
+<section id="contact" className="text-center mt-20 relative overflow-hidden">
+  
+  {/* 🔵 Glow Background */}
+  <div className="absolute w-72 h-72 bg-blue-500/20 blur-3xl rounded-full top-10 left-1/2 -translate-x-1/2 -z-10"></div>
 
-  <div className="flex gap-6 justify-center mt-6">
+  <h2 className="text-4xl font-bold mb-10">Connect Me</h2>
 
+  <div className="flex flex-col items-center gap-6">
+
+    {/* Github */}
+    <a
+      href="https://github.com/iamdeepraj9119"
+      target="_blank"
+      className="flex items-center gap-4 p-4 w-[300px] rounded-2xl bg-gradient-to-br from-gray-500/20 via-gray-700/20 to-transparent backdrop-blur-xl border border-white/10 hover:scale-105 transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]"
+    >
+      <span className="text-2xl">🐱</span>
+      <span className="text-gray-200">Github</span>
+    </a>
+
+    {/* LinkedIn */}
+    <a
+      href="https://www.linkedin.com/in/iamdeepraj9119/"
+      target="_blank"
+      className="flex items-center gap-4 p-4 w-[300px] rounded-2xl bg-gradient-to-br from-blue-500/20 via-blue-700/20 to-transparent backdrop-blur-xl border border-white/10 hover:scale-105 transition-all duration-300 hover:shadow-[0_0_30px_rgba(59,130,246,0.4)]"
+    >
+      <span className="text-2xl">💼</span>
+      <span className="text-gray-200">LinkedIn</span>
+    </a>
+
+    {/* Email */}
     <a
       href="mailto:deeprajsrivastav935@gmail.com"
-      className="p-4 rounded-full bg-white/10 backdrop-blur-lg border border-white/10 hover:scale-110 transition hover:shadow-[0_0_20px_rgba(59,130,246,0.6)]"
+      className="flex items-center gap-4 p-4 w-[300px] rounded-2xl bg-gradient-to-br from-pink-500/20 via-red-500/20 to-transparent backdrop-blur-xl border border-white/10 hover:scale-105 transition-all duration-300 hover:shadow-[0_0_30px_rgba(236,72,153,0.4)]"
     >
-      📧
+      <span className="text-2xl">📧</span>
+      <span className="text-gray-200">deeprajsrivastav935@gmail.com</span>
     </a>
 
   </div>
