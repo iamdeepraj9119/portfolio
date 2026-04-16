@@ -177,7 +177,53 @@ With a strong foundation in Data Analytics, I use tools like Excel, SQL, and Pow
 
   </div>
 </section>
+<section id="tools">
+  <h2 className="text-4xl font-bold mb-10">Tools Experience</h2>
 
+  <div className="grid md:grid-cols-3 gap-8">
+
+    {/* Google Ads */}
+    <div className="p-6 rounded-2xl bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-transparent backdrop-blur-xl border border-white/10 hover:scale-105 transition-all duration-300 hover:shadow-[0_0_40px_rgba(59,130,246,0.4)]">
+      <h3 className="text-xl font-semibold mb-2">📢 Google Ads</h3>
+      <p className="text-gray-300 text-sm">
+        Used for running PPC campaigns, keyword targeting, and optimizing conversions.
+      </p>
+    </div>
+
+    {/* Meta Ads */}
+    <div className="p-6 rounded-2xl bg-gradient-to-br from-pink-500/20 via-red-500/20 to-transparent backdrop-blur-xl border border-white/10 hover:scale-105 transition-all duration-300 hover:shadow-[0_0_40px_rgba(236,72,153,0.4)]">
+      <h3 className="text-xl font-semibold mb-2">📱 Meta Ads Manager</h3>
+      <p className="text-gray-300 text-sm">
+        Used to create and manage Facebook & Instagram ads with audience targeting.
+      </p>
+    </div>
+
+    {/* Google Analytics */}
+    <div className="p-6 rounded-2xl bg-gradient-to-br from-green-500/20 via-teal-500/20 to-transparent backdrop-blur-xl border border-white/10 hover:scale-105 transition-all duration-300 hover:shadow-[0_0_40px_rgba(16,185,129,0.4)]">
+      <h3 className="text-xl font-semibold mb-2">📊 Google Analytics</h3>
+      <p className="text-gray-300 text-sm">
+        Used to track user behavior and measure campaign performance.
+      </p>
+    </div>
+
+    {/* WordPress */}
+    <div className="p-6 rounded-2xl bg-gradient-to-br from-yellow-500/20 via-orange-500/20 to-transparent backdrop-blur-xl border border-white/10 hover:scale-105 transition-all duration-300 hover:shadow-[0_0_40px_rgba(234,179,8,0.4)]">
+      <h3 className="text-xl font-semibold mb-2">🌐 WordPress & Elementor</h3>
+      <p className="text-gray-300 text-sm">
+        Used to build landing pages and improve conversion rates.
+      </p>
+    </div>
+
+    {/* Canva */}
+    <div className="p-6 rounded-2xl bg-gradient-to-br from-purple-500/20 via-pink-500/20 to-transparent backdrop-blur-xl border border-white/10 hover:scale-105 transition-all duration-300 hover:shadow-[0_0_40px_rgba(168,85,247,0.4)]">
+      <h3 className="text-xl font-semibold mb-2">🎨 Canva</h3>
+      <p className="text-gray-300 text-sm">
+        Used to design ad creatives and social media content.
+      </p>
+    </div>
+
+  </div>
+</section>
 <section id="projects">
   <h2 className="text-4xl font-bold mb-10">Projects</h2>
 
