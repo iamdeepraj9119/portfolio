@@ -17,16 +17,17 @@ export default async function BlogPage() {
       <div className="max-w-6xl mx-auto">
 
         <p className="text-sm text-purple-400 uppercase tracking-widest mb-3">
-          AI • SEO • Digital Marketing
+          AI • SEO • Performance Marketing • Analytics
         </p>
 
         <h1 className="text-4xl md:text-6xl font-bold mb-6">
-          Deepraj's Blog
+          Deepraj&apos;s Blog
         </h1>
 
         <p className="text-gray-400 max-w-2xl mb-12">
-          Practical insights on Artificial Intelligence, SEO, Digital
-          Marketing, Data Analytics and the future of search.
+          Practical insights on AI-powered Digital Marketing, SEO, Performance
+          Marketing, Marketing Analytics, and using data to drive measurable
+          business growth.
         </p>
 
         {posts.length === 0 ? (
