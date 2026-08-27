@@ -1,15 +1,45 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
+
 import CertificateGallery from "./CertificateGallery";
 import Navbar from "./Navbar";
 
-// ===============================
+// =====================================================
+// REAL VECTOR ICONS
+// =====================================================
+
+import {
+  FiAward,
+  FiX,
+  FiMail,
+  FiLinkedin,
+  FiArrowRight,
+  FiExternalLink,
+  FiBarChart2,
+  FiSearch,
+  FiTarget,
+  FiUsers,
+  FiFileText,
+  FiVideo,
+  FiTrendingUp,
+  FiSend,
+  FiCheckCircle,
+  FiGlobe,
+  FiMonitor,
+  FiEdit3,
+  FiDatabase,
+  FiCpu,
+  FiSettings,
+  FiPieChart,
+} from "react-icons/fi";
+
+// =====================================================
 // CHARTS - SSR FIX
-// ===============================
+// =====================================================
 
 const BarChart = dynamic(
   () => import("recharts").then((m) => m.BarChart),
@@ -41,9 +71,9 @@ const ResponsiveContainer = dynamic(
   { ssr: false }
 );
 
-// ===============================
+// =====================================================
 // SKILLS DATA
-// ===============================
+// =====================================================
 
 const data = [
   { name: "SEO", value: 90 },
@@ -54,92 +84,152 @@ const data = [
   { name: "Power BI", value: 80 },
 ];
 
-// ===============================
+// =====================================================
 // FOCUS AREAS
-// ===============================
+// =====================================================
 
 const focusAreas = [
   {
-    icon: "🔍",
+    icon: <FiSearch />,
     title: "SEO & Organic Growth",
     description:
       "Improving website visibility, search rankings and organic growth.",
   },
   {
-    icon: "📢",
+    icon: <FiTarget />,
     title: "Google Ads",
     description:
       "Creating and optimizing targeted paid campaigns.",
   },
   {
-    icon: "∞",
+    icon: <FiTrendingUp />,
     title: "Meta Ads",
     description:
       "Running targeted campaigns focused on engagement and conversions.",
   },
   {
-    icon: "🔗",
+    icon: <FiUsers />,
     title: "Social Media Marketing",
     description:
       "Building brand presence and growing audiences organically.",
   },
   {
-    icon: "📄",
+    icon: <FiFileText />,
     title: "Content Strategy",
     description:
       "Planning content that attracts, engages and converts.",
   },
   {
-    icon: "🎯",
+    icon: <FiTrendingUp />,
     title: "Performance Marketing",
     description:
       "Using data and campaign insights to improve marketing performance.",
   },
   {
-    icon: "🎬",
+    icon: <FiVideo />,
     title: "Video Editing & Reels",
     description:
       "Creating engaging short-form videos and promotional content.",
   },
   {
-    icon: "👥",
+    icon: <FiUsers />,
     title: "Lead Generation",
     description:
       "Generating quality leads through digital marketing campaigns.",
   },
   {
-    icon: "📊",
+    icon: <FiBarChart2 />,
     title: "Analytics & Reporting",
     description:
       "Tracking performance and turning data into useful decisions.",
   },
 ];
 
-// ===============================
-// TOOLS
-// ===============================
+// =====================================================
+// TOOLS - REAL VECTOR ICONS
+// =====================================================
 
 const tools = [
-  "Google Analytics",
-  "Google Search Console",
-  "Google Ads",
-  "Meta Business Suite",
-  "Canva",
-  "Adobe Premiere Pro",
-  "Filmora",
-  "Microsoft Excel",
-  "WordPress",
-  "ChatGPT",
-  "Google Keyword Planner",
-  "SEMrush",
-  "Ahrefs",
-  "Ubersuggest",
-  "Google Tag Manager",
+  {
+    name: "Google Analytics",
+    icon: FiBarChart2,
+    iconClass: "text-orange-400",
+  },
+  {
+    name: "Google Search Console",
+    icon: FiSearch,
+    iconClass: "text-blue-400",
+  },
+  {
+    name: "Google Ads",
+    icon: FiTarget,
+    iconClass: "text-blue-400",
+  },
+  {
+    name: "Meta Business Suite",
+    icon: FiUsers,
+    iconClass: "text-blue-500",
+  },
+  {
+    name: "Canva",
+    icon: FiEdit3,
+    iconClass: "text-cyan-400",
+  },
+  {
+    name: "Adobe Premiere Pro",
+    icon: FiVideo,
+    iconClass: "text-purple-400",
+  },
+  {
+    name: "Filmora",
+    icon: FiVideo,
+    iconClass: "text-cyan-400",
+  },
+  {
+    name: "Microsoft Excel",
+    icon: FiDatabase,
+    iconClass: "text-green-400",
+  },
+  {
+    name: "WordPress",
+    icon: FiGlobe,
+    iconClass: "text-blue-400",
+  },
+  {
+    name: "ChatGPT",
+    icon: FiCpu,
+    iconClass: "text-white",
+  },
+  {
+    name: "Google Keyword Planner",
+    icon: FiSearch,
+    iconClass: "text-blue-400",
+  },
+  {
+    name: "SEMrush",
+    icon: FiTrendingUp,
+    iconClass: "text-orange-400",
+  },
+  {
+    name: "Ahrefs",
+    icon: FiBarChart2,
+    iconClass: "text-red-400",
+  },
+  {
+    name: "Ubersuggest",
+    icon: FiSearch,
+    iconClass: "text-orange-400",
+  },
+  {
+    name: "Google Tag Manager",
+    icon: FiSettings,
+    iconClass: "text-blue-400",
+  },
 ];
 
-// ===============================
+// =====================================================
 // SERVICES
-// ===============================
+// =====================================================
 
 const services = [
   {
@@ -177,78 +267,136 @@ const services = [
   },
 ];
 
-// ===============================
+// =====================================================
 // EXPERTISE
-// ===============================
+// =====================================================
 
 const expertise = [
   {
-    icon: "🔍",
+    icon: <FiSearch />,
     title: "SEO",
     description:
       "Improving website visibility and search engine rankings.",
   },
   {
-    icon: "📢",
+    icon: <FiTarget />,
     title: "Google Ads",
     description:
       "Creating and managing high-converting ad campaigns.",
   },
   {
-    icon: "∞",
+    icon: <FiTrendingUp />,
     title: "Meta Ads",
     description:
       "Running targeted ads that drive engagement and sales.",
   },
   {
-    icon: "👥",
+    icon: <FiUsers />,
     title: "Social Media Marketing",
     description:
       "Building brand presence and growing audiences organically.",
   },
   {
-    icon: "📝",
+    icon: <FiFileText />,
     title: "Content Strategy",
     description:
       "Planning content that attracts, engages and converts.",
   },
   {
-    icon: "✏️",
+    icon: <FiEdit3 />,
     title: "Content Creation",
     description:
       "Creating engaging posts, captions and marketing content.",
   },
   {
-    icon: "📊",
+    icon: <FiBarChart2 />,
     title: "Analytics & Reporting",
     description:
       "Tracking performance and making data-driven decisions.",
   },
   {
-    icon: "👤",
+    icon: <FiUsers />,
     title: "Lead Generation",
     description:
       "Generating quality leads and improving conversion opportunities.",
   },
   {
-    icon: "✉️",
+    icon: <FiSend />,
     title: "Email Marketing",
     description:
       "Building campaigns that nurture and convert audiences.",
   },
   {
-    icon: "🎬",
+    icon: <FiVideo />,
     title: "Video Editing",
     description:
       "Editing engaging videos, reels and promotional content.",
   },
 ];
 
-// ===============================
+// =====================================================
 // MAIN COMPONENT
-// ===============================
+// =====================================================
 
 export default function Sections() {
+  const [showCertificates, setShowCertificates] = useState(false);
+
+  // ===================================================
+  // GMAIL CONTACT FORM
+  // ===================================================
+
+  const handleContactSubmit = (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
+    e.preventDefault();
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    const name = String(formData.get("Name") || "");
+    const email = String(formData.get("Email") || "");
+    const projectType = String(
+      formData.get("Project Type") || ""
+    );
+    const budget = String(
+      formData.get("Estimated Budget") || ""
+    );
+    const details = String(
+      formData.get("Project Details") || ""
+    );
+
+    const subject = encodeURIComponent(
+      `Portfolio Inquiry - ${
+        projectType || "Digital Marketing"
+      }`
+    );
+
+    const body = encodeURIComponent(
+      `Hello Deepraj,
+
+I would like to discuss a project with you.
+
+Name: ${name}
+Email: ${email}
+Project Type: ${projectType}
+Estimated Budget: ${budget}
+
+Project Details:
+${details}
+
+Regards,
+${name}`
+    );
+
+    const gmailUrl =
+      `https://mail.google.com/mail/?view=cm&fs=1` +
+      `&to=deeprajsrivastav935@gmail.com` +
+      `&su=${subject}` +
+      `&body=${body}`;
+
+    window.open(gmailUrl, "_blank");
+  };
+
   return (
     <div className="bg-black text-white overflow-hidden">
 
@@ -256,7 +404,9 @@ export default function Sections() {
 
       <div className="px-6 md:px-20 pt-32 pb-20 space-y-32">
 
-        {/* ================= HERO ================= */}
+        {/* =================================================
+            HERO
+        ================================================= */}
 
         <motion.section
           id="home"
@@ -274,13 +424,15 @@ export default function Sections() {
 
           <div className="relative max-w-4xl backdrop-blur-2xl bg-white/5 border border-white/10 rounded-3xl px-8 md:px-12 py-12 shadow-xl">
 
-            {/* Shine */}
+            {/* SHINE */}
 
             <div className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none">
+
               <div className="absolute -top-1/2 left-[-50%] w-[200%] h-[200%] bg-gradient-to-r from-transparent via-white/10 to-transparent rotate-12 animate-[shine_6s_linear_infinite]" />
+
             </div>
 
-            {/* Profile */}
+            {/* PROFILE */}
 
             <div className="relative mb-6 flex items-center justify-center">
 
@@ -335,18 +487,27 @@ export default function Sections() {
             </div>
 
           </div>
+
         </motion.section>
 
-        {/* ================= ABOUT ================= */}
+        {/* =================================================
+            ABOUT
+        ================================================= */}
 
-        <section id="about" className="scroll-mt-28">
+        <section
+          id="about"
+          className="scroll-mt-28"
+        >
 
           <p className="text-blue-400 uppercase tracking-[0.25em] text-sm mb-3">
             Who I Am
           </p>
 
           <h2 className="text-4xl md:text-5xl font-bold mb-8">
-            About <span className="text-blue-400">Me</span>
+            About{" "}
+            <span className="text-blue-400">
+              Me
+            </span>
           </h2>
 
           <div className="max-w-4xl p-8 rounded-3xl bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 backdrop-blur-xl border border-white/10 shadow-[0_0_40px_rgba(168,85,247,0.2)]">
@@ -369,9 +530,14 @@ export default function Sections() {
 
         </section>
 
-        {/* ================= WHAT I DO ================= */}
+        {/* =================================================
+            SERVICES
+        ================================================= */}
 
-        <section id="services" className="scroll-mt-28">
+        <section
+          id="services"
+          className="scroll-mt-28"
+        >
 
           <div className="text-center mb-12">
 
@@ -414,9 +580,15 @@ export default function Sections() {
                   {service.points.map((point) => (
                     <p
                       key={point}
-                      className="text-gray-200 text-sm"
+                      className="text-gray-200 text-sm flex items-center"
                     >
-                      ✦ {point}
+
+                      <FiCheckCircle
+                        className="mr-2 text-blue-400 flex-shrink-0"
+                      />
+
+                      {point}
+
                     </p>
                   ))}
 
@@ -429,9 +601,14 @@ export default function Sections() {
 
         </section>
 
-        {/* ================= SKILLS ================= */}
+        {/* =================================================
+            SKILLS
+        ================================================= */}
 
-        <section id="skills" className="scroll-mt-28">
+        <section
+          id="skills"
+          className="scroll-mt-28"
+        >
 
           <div className="text-center mb-12">
 
@@ -462,7 +639,7 @@ export default function Sections() {
                 className="p-5 min-h-[170px] rounded-2xl bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-transparent backdrop-blur-xl border border-white/10 hover:border-blue-500/40 transition-all"
               >
 
-                <div className="text-3xl mb-4">
+                <div className="text-3xl mb-4 text-blue-400">
                   {skill.icon}
                 </div>
 
@@ -481,9 +658,14 @@ export default function Sections() {
 
         </section>
 
-        {/* ================= TOOLS ================= */}
+        {/* =================================================
+            TOOLS
+        ================================================= */}
 
-        <section id="tools" className="scroll-mt-28">
+        <section
+          id="tools"
+          className="scroll-mt-28"
+        >
 
           <div className="text-center mb-12">
 
@@ -498,31 +680,59 @@ export default function Sections() {
               </span>
             </h2>
 
+            <p className="text-gray-400 max-w-2xl mx-auto mt-5">
+              Professional tools I use across SEO, digital marketing,
+              analytics, content and performance marketing.
+            </p>
+
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
 
-            {tools.map((tool) => (
-              <motion.div
-                key={tool}
-                whileHover={{ scale: 1.04 }}
-                className="p-5 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-blue-500/40 hover:bg-blue-500/10 transition-all text-center"
-              >
+            {tools.map((tool) => {
 
-                <span className="text-gray-200 font-medium text-sm md:text-base">
-                  {tool}
-                </span>
+              const Icon = tool.icon;
 
-              </motion.div>
-            ))}
+              return (
+                <motion.div
+                  key={tool.name}
+                  whileHover={{
+                    scale: 1.04,
+                    y: -4,
+                  }}
+                  className="group p-5 min-h-[125px] rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-blue-500/40 hover:bg-blue-500/10 transition-all text-center flex flex-col items-center justify-center"
+                >
+
+                  <div className="mb-4 flex items-center justify-center">
+
+                    <Icon
+                      size={38}
+                      className={`${tool.iconClass} group-hover:scale-110 transition-transform duration-300`}
+                    />
+
+                  </div>
+
+                  <span className="text-gray-200 font-medium text-sm md:text-base">
+                    {tool.name}
+                  </span>
+
+                </motion.div>
+              );
+
+            })}
 
           </div>
 
         </section>
 
-        {/* ================= AREAS I FOCUS ON ================= */}
+        {/* =================================================
+            AREAS I FOCUS ON
+        ================================================= */}
 
-        <section id="focus" className="scroll-mt-28">
+        <section
+          id="focus"
+          className="scroll-mt-28"
+        >
 
           <div className="text-center mb-12">
 
@@ -547,10 +757,10 @@ export default function Sections() {
                 whileHover={{
                   backgroundColor: "rgba(59,130,246,0.10)",
                 }}
-                className="p-6 min-h-[170px] bg-white/[0.03] border border-white/10 text-center transition-all"
+                className="p-6 min-h-[170px] bg-white/[0.03] border border-white/10 text-center transition-all flex flex-col items-center"
               >
 
-                <div className="text-3xl mb-4">
+                <div className="text-3xl mb-4 text-blue-400">
                   {area.icon}
                 </div>
 
@@ -569,15 +779,23 @@ export default function Sections() {
 
         </section>
 
-        {/* ================= SKILLS OVERVIEW ================= */}
+        {/* =================================================
+            SKILLS OVERVIEW
+        ================================================= */}
 
-        <section id="analytics" className="scroll-mt-28">
+        <section
+          id="analytics"
+          className="scroll-mt-28"
+        >
 
           <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+
             Skills{" "}
+
             <span className="text-blue-400">
               Overview
             </span>
+
           </h2>
 
           <div className="w-full max-w-5xl mx-auto h-[350px] md:h-[420px] p-4 md:p-6 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 relative overflow-hidden">
@@ -657,9 +875,14 @@ export default function Sections() {
 
         </section>
 
-        {/* ================= PROJECTS ================= */}
+        {/* =================================================
+            PROJECTS
+        ================================================= */}
 
-        <section id="projects" className="scroll-mt-28">
+        <section
+          id="projects"
+          className="scroll-mt-28"
+        >
 
           <div className="mb-10">
 
@@ -685,8 +908,8 @@ export default function Sections() {
               className="p-6 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-blue-500/40 transition-all"
             >
 
-              <div className="text-4xl mb-5">
-                📊
+              <div className="text-blue-400 mb-5">
+                <FiBarChart2 size={42} />
               </div>
 
               <h3 className="text-xl font-semibold mb-3">
@@ -702,9 +925,13 @@ export default function Sections() {
                 href="https://github.com/iamdeepraj9119/HR-DATA-ANALYTICS"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-center py-3 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition"
+                className="flex items-center justify-center gap-2 text-center py-3 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition"
               >
-                🔗 View Project
+
+                <FiExternalLink />
+
+                View Project
+
               </a>
 
             </motion.div>
@@ -716,8 +943,8 @@ export default function Sections() {
               className="p-6 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-blue-500/40 transition-all"
             >
 
-              <div className="text-4xl mb-5">
-                📈
+              <div className="text-blue-400 mb-5">
+                <FiTrendingUp size={42} />
               </div>
 
               <h3 className="text-xl font-semibold mb-3">
@@ -733,9 +960,13 @@ export default function Sections() {
                 href="https://github.com/iamdeepraj9119/E-Commerce-Sales-Dashboard-Power-BI"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-center py-3 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition"
+                className="flex items-center justify-center gap-2 text-center py-3 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition"
               >
-                🔗 View Project
+
+                <FiExternalLink />
+
+                View Project
+
               </a>
 
             </motion.div>
@@ -747,8 +978,8 @@ export default function Sections() {
               className="p-6 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-blue-500/40 transition-all"
             >
 
-              <div className="text-4xl mb-5">
-                💻
+              <div className="text-blue-400 mb-5">
+                <FiFileText size={42} />
               </div>
 
               <h3 className="text-xl font-semibold mb-3">
@@ -764,27 +995,153 @@ export default function Sections() {
                 href="https://github.com/iamdeepraj9119/Code-Sweep-Project"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-center py-3 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition"
+                className="flex items-center justify-center gap-2 text-center py-3 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition"
               >
-                🔗 View Project
+
+                <FiExternalLink />
+
+                View Project
+
               </a>
 
             </motion.div>
 
           </div>
 
+          {/* =================================================
+              CERTIFICATES BUTTON
+          ================================================= */}
+
+          <div className="mt-10 flex justify-center">
+
+            <motion.button
+              type="button"
+              whileHover={{
+                scale: 1.04,
+                y: -3,
+              }}
+              whileTap={{
+                scale: 0.97,
+              }}
+              onClick={() => setShowCertificates(true)}
+              className="group flex items-center gap-3 px-7 py-4 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-blue-500/50 hover:bg-blue-500/10 transition-all shadow-[0_0_25px_rgba(59,130,246,0.08)]"
+            >
+
+              <span className="flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-white/10">
+
+                <FiAward
+                  size={24}
+                  className="text-blue-400 group-hover:text-purple-400 transition"
+                />
+
+              </span>
+
+              <span className="text-left">
+
+                <span className="block font-semibold text-white">
+                  Certificates
+                </span>
+
+                <span className="block text-xs text-gray-500">
+                  View my certifications
+                </span>
+
+              </span>
+
+              <FiArrowRight
+                size={20}
+                className="text-gray-500 group-hover:text-blue-400 group-hover:translate-x-1 transition"
+              />
+
+            </motion.button>
+
+          </div>
+
         </section>
 
-        {/* ================= CERTIFICATES ================= */}
+        {/* =================================================
+            CERTIFICATE MODAL
+        ================================================= */}
 
-        <section
-          id="certificates"
-          className="scroll-mt-28"
-        >
-          <CertificateGallery />
-        </section>
+        {showCertificates && (
 
-        {/* ================= TESTIMONIALS ================= */}
+          <div
+            className="fixed inset-0 z-[9999] bg-black/80 backdrop-blur-md flex items-center justify-center p-4 md:p-8"
+            onClick={() => setShowCertificates(false)}
+          >
+
+            <div
+              className="relative w-full max-w-6xl max-h-[90vh] overflow-y-auto rounded-3xl bg-[#09090f] border border-white/10 shadow-[0_0_80px_rgba(59,130,246,0.18)]"
+              onClick={(e) => e.stopPropagation()}
+            >
+
+              {/* CLOSE BUTTON */}
+
+              <button
+                type="button"
+                onClick={() => setShowCertificates(false)}
+                aria-label="Close certificates"
+                className="absolute top-5 right-5 z-20 w-11 h-11 rounded-full bg-black/60 border border-white/10 flex items-center justify-center text-gray-300 hover:text-white hover:border-blue-500/50 transition"
+              >
+
+                <FiX size={22} />
+
+              </button>
+
+              {/* HEADER */}
+
+              <div className="px-6 md:px-10 pt-8 pb-4 text-center">
+
+                <div className="flex justify-center mb-4">
+
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-white/10 flex items-center justify-center">
+
+                    <FiAward
+                      size={28}
+                      className="text-blue-400"
+                    />
+
+                  </div>
+
+                </div>
+
+                <p className="text-blue-400 uppercase tracking-[0.25em] text-xs mb-2">
+                  Credentials
+                </p>
+
+                <h2 className="text-3xl md:text-5xl font-bold">
+
+                  Certificates{" "}
+
+                  <span className="text-purple-400">
+                    Gallery
+                  </span>
+
+                </h2>
+
+                <p className="text-gray-500 mt-3 text-sm">
+                  Certifications, achievements and professional learning.
+                </p>
+
+              </div>
+
+              {/* EXISTING GALLERY */}
+
+              <div className="px-4 md:px-8 pb-8">
+
+                <CertificateGallery />
+
+              </div>
+
+            </div>
+
+          </div>
+
+        )}
+
+        {/* =================================================
+            TESTIMONIALS
+        ================================================= */}
 
         <section
           id="testimonials"
@@ -798,10 +1155,13 @@ export default function Sections() {
             </p>
 
             <h2 className="text-4xl md:text-6xl font-bold">
+
               What People{" "}
+
               <span className="text-purple-400">
                 Say
               </span>
+
             </h2>
 
             <p className="text-gray-400 max-w-2xl mx-auto mt-4">
@@ -848,8 +1208,10 @@ export default function Sections() {
               </div>
 
               <p className="text-gray-300 italic leading-relaxed mb-7">
+
                 &quot;Add another genuine testimonial describing your work,
                 collaboration or results.&quot;
+
               </p>
 
               <div>
@@ -875,8 +1237,10 @@ export default function Sections() {
               </div>
 
               <p className="text-gray-300 italic leading-relaxed mb-7">
+
                 &quot;Add a verified testimonial highlighting your skills,
                 professionalism or project contribution.&quot;
+
               </p>
 
               <div>
@@ -897,7 +1261,9 @@ export default function Sections() {
 
         </section>
 
-        {/* ================= CONTACT ================= */}
+        {/* =================================================
+            CONTACT
+        ================================================= */}
 
         <section
           id="contact"
@@ -913,10 +1279,13 @@ export default function Sections() {
               </p>
 
               <h2 className="text-4xl md:text-6xl font-bold">
+
                 Ready to{" "}
+
                 <span className="text-blue-400">
                   Grow?
                 </span>
+
               </h2>
 
               <p className="text-gray-400 max-w-2xl mx-auto mt-5">
@@ -930,9 +1299,7 @@ export default function Sections() {
             {/* CONTACT FORM */}
 
             <form
-              action="mailto:deeprajsrivastav935@gmail.com"
-              method="post"
-              encType="text/plain"
+              onSubmit={handleContactSubmit}
               className="p-6 md:p-10 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10"
             >
 
@@ -992,14 +1359,37 @@ export default function Sections() {
                       Select Project Type
                     </option>
 
-                    <option>SEO</option>
-                    <option>Google Ads</option>
-                    <option>Meta Ads</option>
-                    <option>Social Media Marketing</option>
-                    <option>Website / WordPress</option>
-                    <option>Analytics</option>
-                    <option>Content & Video</option>
-                    <option>Other</option>
+                    <option>
+                      SEO
+                    </option>
+
+                    <option>
+                      Google Ads
+                    </option>
+
+                    <option>
+                      Meta Ads
+                    </option>
+
+                    <option>
+                      Social Media Marketing
+                    </option>
+
+                    <option>
+                      Website / WordPress
+                    </option>
+
+                    <option>
+                      Analytics
+                    </option>
+
+                    <option>
+                      Content & Video
+                    </option>
+
+                    <option>
+                      Other
+                    </option>
 
                   </select>
 
@@ -1066,9 +1456,15 @@ export default function Sections() {
 
               <button
                 type="submit"
-                className="mt-7 px-8 py-4 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 font-semibold hover:scale-105 transition hover:shadow-[0_0_30px_rgba(59,130,246,0.4)]"
+                className="mt-7 px-8 py-4 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 font-semibold hover:scale-105 transition hover:shadow-[0_0_30px_rgba(59,130,246,0.4)] flex items-center gap-2"
               >
-                Let&apos;s Discuss Your Project →
+
+                <FiMail />
+
+                Let&apos;s Discuss Your Project
+
+                <FiArrowRight />
+
               </button>
 
             </form>
@@ -1077,20 +1473,61 @@ export default function Sections() {
 
             <div className="flex justify-center gap-5 mt-8 flex-wrap">
 
+              {/* GMAIL */}
+
               <a
-                href="mailto:deeprajsrivastav935@gmail.com"
-                className="px-6 py-3 rounded-xl bg-white/5 border border-white/10 hover:border-blue-500 transition"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=deeprajsrivastav935@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-3 px-6 py-3 rounded-xl bg-white/5 border border-white/10 hover:border-red-500/50 hover:bg-red-500/5 transition"
               >
-                📧 Email Me
+
+                <FiMail
+                  size={20}
+                  className="text-red-400 group-hover:scale-110 transition"
+                />
+
+                <span>
+                  Gmail
+                </span>
+
               </a>
+
+              {/* LINKEDIN */}
 
               <a
                 href="https://www.linkedin.com/in/iamdeepraj9119/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 rounded-xl bg-white/5 border border-white/10 hover:border-blue-500 transition"
+                className="group flex items-center gap-3 px-6 py-3 rounded-xl bg-white/5 border border-white/10 hover:border-blue-500/50 hover:bg-blue-500/5 transition"
               >
-                💼 LinkedIn
+
+                <FiLinkedin
+                  size={20}
+                  className="text-blue-400 group-hover:scale-110 transition"
+                />
+
+                <span>
+                  LinkedIn
+                </span>
+
+              </a>
+
+            </div>
+
+            {/* EMAIL ADDRESS */}
+
+            <div className="flex justify-center mt-5">
+
+              <a
+                href="mailto:deeprajsrivastav935@gmail.com"
+                className="text-gray-500 hover:text-blue-400 transition text-sm flex items-center gap-2"
+              >
+
+                <FiMail size={15} />
+
+                deeprajsrivastav935@gmail.com
+
               </a>
 
             </div>
@@ -1099,7 +1536,9 @@ export default function Sections() {
 
         </section>
 
-        {/* ================= FOOTER ================= */}
+        {/* =================================================
+            FOOTER
+        ================================================= */}
 
         <footer className="border-t border-white/10 pt-8 text-center text-gray-500">
 
@@ -1114,6 +1553,7 @@ export default function Sections() {
         </footer>
 
       </div>
+
     </div>
   );
 }
