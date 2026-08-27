@@ -457,14 +457,17 @@ ${name}`
               Deepraj Srivastav
             </h1>
 
+            {/* UPDATED HERO POSITIONING */}
+
             <p className="text-blue-400 text-xl md:text-2xl mb-4">
-              Data Analyst | Digital Marketing
+              AI-Powered Digital Marketing Specialist | SEO | Performance Marketing | Analytics
             </p>
 
             <p className="text-gray-400 max-w-2xl mx-auto mb-8">
-              Data-Driven Digital Marketing professional focused on SEO,
-              Performance Marketing, Analytics, and turning data into
-              meaningful business growth.
+              AI-powered Digital Marketing professional focused on SEO,
+              Performance Marketing, Marketing Analytics, and data-driven
+              strategies that help businesses improve visibility, reach the
+              right audience, and drive measurable growth.
             </p>
 
             <div className="flex gap-4 justify-center flex-wrap">
@@ -512,18 +515,23 @@ ${name}`
 
           <div className="max-w-4xl p-8 rounded-3xl bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 backdrop-blur-xl border border-white/10 shadow-[0_0_40px_rgba(168,85,247,0.2)]">
 
+            {/* UPDATED ABOUT ME */}
+
             <p className="text-gray-200 leading-relaxed text-lg">
-              I am an aspiring Data Analyst currently pursuing MCA in Data
-              Analytics. I have strong skills in Python, SQL, Excel and Power
-              BI. Along with data analytics, I also work with Digital
-              Marketing including SEO, Google Ads, Meta Ads, Google Analytics
-              and Social Media Marketing.
+              I am a Digital Marketing professional building my career as an
+              AI-Powered Digital Marketing Specialist, with a strong focus on
+              SEO, Performance Marketing, Marketing Analytics, and data-driven
+              growth. I work with SEO, Google Ads, Meta Ads, Google Analytics,
+              Social Media Marketing, and AI-powered marketing tools to build
+              smarter and more effective digital strategies.
             </p>
 
             <p className="text-gray-400 leading-relaxed mt-5">
-              I enjoy combining data, technology and marketing to understand
-              problems, discover insights and create practical strategies
-              that help businesses grow online.
+              My approach combines AI, SEO, performance marketing, analytics,
+              and technology to understand search behavior, measure campaign
+              performance, identify growth opportunities, and turn data into
+              actionable marketing strategies that deliver measurable
+              business results.
             </p>
 
           </div>
