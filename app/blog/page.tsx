@@ -1,76 +1,73 @@
-{/* ================= HERO SECTION ================= */}
+import { sanityClient } from "@/app/lib/sanity";
 
-<section id="home" className="relative">
-  {/* अपना existing background, image, animations और बाकी styling SAME रखें */}
+const query = `*[_type == "post"] | order(publishedAt desc) {
+  title,
+  "slug": slug.current,
+  author,
+  publishedAt,
+  excerpt,
+  mainImage
+}`;
 
-  <p>
-    DIGITAL GROWTH • AI • DATA • TECHNOLOGY
-  </p>
+export default async function BlogPage() {
+  const posts = await sanityClient.fetch(query);
 
-  <h1>
-    Deepraj Srivastav
-  </h1>
+  return (
+    <main className="min-h-screen bg-[#0b0b0f] text-white px-6 py-20">
+      <div className="max-w-6xl mx-auto">
 
-  <h2>
-    AI-Powered Digital Marketing Specialist
-  </h2>
+        <p className="text-sm text-purple-400 uppercase tracking-widest mb-3">
+          AI • SEO • Digital Marketing
+        </p>
 
-  <p>
-    SEO | Performance Marketing | Marketing Analytics | AI
-  </p>
+        <h1 className="text-4xl md:text-6xl font-bold mb-6">
+          Deepraj's Blog
+        </h1>
 
-  <p>
-    Digital Marketing professional focused on SEO, Performance Marketing,
-    and Marketing Analytics, using AI and data to build smarter strategies,
-    improve online visibility, and drive measurable business growth.
-  </p>
+        <p className="text-gray-400 max-w-2xl mb-12">
+          Practical insights on Artificial Intelligence, SEO, Digital
+          Marketing, Data Analytics and the future of search.
+        </p>
 
-  {/* अपने existing buttons SAME रखें */}
-  <div>
-    <a href="#projects">
-      View Projects
-    </a>
+        {posts.length === 0 ? (
+          <div className="border border-white/10 rounded-2xl p-8 text-gray-400">
+            No blog posts published yet.
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-    <a href="/resume.pdf" download>
-      Download Resume
-    </a>
-  </div>
-</section>
+            {posts.map((post: any) => (
+              <article
+                key={post.slug}
+                className="group border border-white/10 bg-white/5 rounded-2xl p-6 hover:border-purple-500/50 transition"
+              >
+                <div className="h-40 rounded-xl bg-gradient-to-br from-purple-600/30 to-blue-600/20 mb-5" />
 
+                <p className="text-xs text-purple-400 mb-2">
+                  {post.author || "Deepraj Srivastav"}
+                </p>
 
-{/* ================= ABOUT SECTION ================= */}
+                <h2 className="text-xl font-semibold mb-3 group-hover:text-purple-400 transition">
+                  {post.title}
+                </h2>
 
-<section id="about">
-  <p>
-    WHO I AM
-  </p>
+                <p className="text-gray-400 text-sm leading-6">
+                  {post.excerpt || "Read this article to learn more."}
+                </p>
 
-  <h2>
-    About <span>Me</span>
-  </h2>
+                <a
+                  href={`/blog/${post.slug}`}
+                  className="inline-block mt-5 text-sm font-medium text-white hover:text-purple-400"
+                >
+                  Read Article →
+                </a>
+              </article>
+            ))}
 
-  <div>
-    <p>
-      I’m a Digital Marketing professional building my career at the
-      intersection of SEO, Performance Marketing, AI, and Marketing Analytics.
-    </p>
+          </div>
+        )}
 
-    <p>
-      I currently work in SEO, with hands-on experience in keyword research,
-      search intent analysis, on-page SEO, technical SEO, content optimization,
-      internal linking, WordPress, and website performance.
-    </p>
-
-    <p>
-      Alongside my professional experience, I’m pursuing an MCA in Data Analytics
-      and developing skills in SQL, Excel, Power BI, Python, and data visualization
-      to strengthen my marketing analytics capabilities.
-    </p>
-
-    <p>
-      My goal is to become an AI-Powered Digital Marketing Specialist, combining
-      SEO, Performance Marketing, AI, and data analytics to build smarter campaigns,
-      improve online visibility, and drive measurable business growth.
-    </p>
-  </div>
-</section>
+      </div>
+    </main>
+  );
+}
