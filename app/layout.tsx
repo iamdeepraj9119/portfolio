@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
@@ -10,6 +11,9 @@ export const metadata: Metadata = {
   title: 'Deepraj Srivastav | Data Analyst & Digital Marketer',
   description:
     'Portfolio of Deepraj Srivastav - Data Analyst skilled in Python, SQL, Excel, Power BI and Digital Marketing (SEO, Google Analytics, Social Media Marketing).',
+  verification: {
+    google: 'trV3-HHjkRCPD7zTSlpFwCeeUFbBpi7sivCLcrgNmSs',
+  },
   keywords: [
     'Data Analyst',
     'Python',
