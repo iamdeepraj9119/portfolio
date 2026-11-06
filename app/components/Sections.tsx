@@ -12,6 +12,8 @@ import Navbar from "./Navbar";
 // REAL VECTOR ICONS
 // =====================================================
 
+import { SiGooglegemini, SiGoogle, SiPerplexity, SiAnthropic } from "react-icons/si";
+
 import {
   FiAward,
   FiX,
@@ -150,81 +152,32 @@ const focusAreas = [
 // =====================================================
 
 const tools = [
-  {
-    name: "Google Analytics",
-    icon: FiBarChart2,
-    iconClass: "text-orange-400",
-  },
-  {
-    name: "Google Search Console",
-    icon: FiSearch,
-    iconClass: "text-blue-400",
-  },
-  {
-    name: "Google Ads",
-    icon: FiTarget,
-    iconClass: "text-blue-400",
-  },
-  {
-    name: "Meta Business Suite",
-    icon: FiUsers,
-    iconClass: "text-blue-500",
-  },
-  {
-    name: "Canva",
-    icon: FiEdit3,
-    iconClass: "text-cyan-400",
-  },
-  {
-    name: "Adobe Premiere Pro",
-    icon: FiVideo,
-    iconClass: "text-purple-400",
-  },
-  {
-    name: "Filmora",
-    icon: FiVideo,
-    iconClass: "text-cyan-400",
-  },
-  {
-    name: "Microsoft Excel",
-    icon: FiDatabase,
-    iconClass: "text-green-400",
-  },
-  {
-    name: "WordPress",
-    icon: FiGlobe,
-    iconClass: "text-blue-400",
-  },
-  {
-    name: "ChatGPT",
-    icon: FiCpu,
-    iconClass: "text-white",
-  },
-  {
-    name: "Google Keyword Planner",
-    icon: FiSearch,
-    iconClass: "text-blue-400",
-  },
-  {
-    name: "SEMrush",
-    icon: FiTrendingUp,
-    iconClass: "text-orange-400",
-  },
-  {
-    name: "Ahrefs",
-    icon: FiBarChart2,
-    iconClass: "text-red-400",
-  },
-  {
-    name: "Ubersuggest",
-    icon: FiSearch,
-    iconClass: "text-orange-400",
-  },
-  {
-    name: "Google Tag Manager",
-    icon: FiSettings,
-    iconClass: "text-blue-400",
-  },
+  // Analytics & Measurement
+  { name: "Google Analytics", category: "Analytics & Measurement", icon: FiBarChart2, iconClass: "text-orange-400" },
+  { name: "Google Search Console", category: "Analytics & Measurement", icon: FiSearch, iconClass: "text-blue-400" },
+  { name: "Google Tag Manager", category: "Analytics & Measurement", icon: FiSettings, iconClass: "text-blue-400" },
+  { name: "Microsoft Excel", category: "Analytics & Measurement", icon: FiDatabase, iconClass: "text-green-400" },
+
+  // SEO & Marketing
+  { name: "Google Ads", category: "SEO & Marketing", icon: FiTarget, iconClass: "text-blue-400" },
+  { name: "Meta Business Suite", category: "SEO & Marketing", icon: FiUsers, iconClass: "text-blue-500" },
+  { name: "Google Keyword Planner", category: "SEO & Marketing", icon: FiSearch, iconClass: "text-blue-400" },
+  { name: "SEMrush", category: "SEO & Marketing", icon: FiTrendingUp, iconClass: "text-orange-400" },
+  { name: "Ahrefs", category: "SEO & Marketing", icon: FiBarChart2, iconClass: "text-red-400" },
+  { name: "Ubersuggest", category: "SEO & Marketing", icon: FiSearch, iconClass: "text-orange-400" },
+
+  // Content & Website
+  { name: "Canva", category: "Content & Website", icon: FiEdit3, iconClass: "text-cyan-400" },
+  { name: "Adobe Premiere Pro", category: "Content & Website", icon: FiVideo, iconClass: "text-purple-400" },
+  { name: "Filmora", category: "Content & Website", icon: FiVideo, iconClass: "text-cyan-400" },
+  { name: "WordPress", category: "Content & Website", icon: FiGlobe, iconClass: "text-blue-400" },
+
+  // AI Tools
+  { name: "ChatGPT", category: "AI Tools", icon: FiCpu, iconClass: "text-white" },
+  { name: "Gemini", category: "AI Tools", icon: SiGooglegemini, iconClass: "text-blue-300" },
+  { name: "Google Flow", category: "AI Tools", icon: SiGoogle, iconClass: "text-blue-400" },
+  { name: "Perplexity", category: "AI Tools", icon: SiPerplexity, iconClass: "text-cyan-300" },
+  { name: "Claude", category: "AI Tools", icon: SiAnthropic, iconClass: "text-orange-300" },
 ];
 
 // =====================================================
@@ -460,14 +413,13 @@ ${name}`
             {/* UPDATED HERO POSITIONING */}
 
             <p className="text-blue-400 text-xl md:text-2xl mb-4">
-              AI-Powered Digital Marketing Specialist | SEO | Performance Marketing | Analytics
+              Digital Marketing | SEO | AI-Assisted Content Creation | Data Analytics
             </p>
 
             <p className="text-gray-400 max-w-2xl mx-auto mb-8">
-              AI-powered Digital Marketing professional focused on SEO,
-              Performance Marketing, Marketing Analytics, and data-driven
-              strategies that help businesses improve visibility, reach the
-              right audience, and drive measurable growth.
+              I work across digital marketing, SEO, AI-assisted content creation, and data analytics.
+              I enjoy building digital projects, creating content, and using data
+              to understand performance and identify opportunities.
             </p>
 
             <div className="flex gap-4 justify-center flex-wrap">
@@ -550,13 +502,13 @@ ${name}`
           <div className="text-center mb-12">
 
             <p className="text-blue-400 uppercase tracking-[0.25em] text-sm mb-3">
-              What I Do
+              What I Work On
             </p>
 
             <h2 className="text-4xl md:text-6xl font-bold">
-              Built for{" "}
+              What I{" "}
               <span className="text-blue-400">
-                Digital Growth
+                Work On
               </span>
             </h2>
 
@@ -695,39 +647,35 @@ ${name}`
 
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          <div className="space-y-10">
 
-            {tools.map((tool) => {
-
-              const Icon = tool.icon;
-
-              return (
-                <motion.div
-                  key={tool.name}
-                  whileHover={{
-                    scale: 1.04,
-                    y: -4,
-                  }}
-                  className="group p-5 min-h-[125px] rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-blue-500/40 hover:bg-blue-500/10 transition-all text-center flex flex-col items-center justify-center"
-                >
-
-                  <div className="mb-4 flex items-center justify-center">
-
-                    <Icon
-                      size={38}
-                      className={`${tool.iconClass} group-hover:scale-110 transition-transform duration-300`}
-                    />
-
-                  </div>
-
-                  <span className="text-gray-200 font-medium text-sm md:text-base">
-                    {tool.name}
-                  </span>
-
-                </motion.div>
-              );
-
-            })}
+            {["Analytics & Measurement", "SEO & Marketing", "Content & Website", "AI Tools"].map((category) => (
+              <div key={category}>
+                <h3 className="text-xl font-semibold text-gray-200 mb-5">{category}</h3>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                  {tools.filter((tool) => tool.category === category).map((tool) => {
+                    const Icon = tool.icon;
+                    return (
+                      <motion.div
+                        key={tool.name}
+                        whileHover={{ scale: 1.04, y: -4 }}
+                        className="group p-5 min-h-[125px] rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-blue-500/40 hover:bg-blue-500/10 transition-all text-center flex flex-col items-center justify-center"
+                      >
+                        <div className="mb-4 flex items-center justify-center">
+                          <Icon
+                            size={38}
+                            className={`${tool.iconClass} group-hover:scale-110 transition-transform duration-300`}
+                          />
+                        </div>
+                        <span className="text-gray-200 font-medium text-sm md:text-base">
+                          {tool.name}
+                        </span>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
 
           </div>
 
@@ -1014,6 +962,52 @@ ${name}`
 
             </motion.div>
 
+            {/* PROJECT 4 */}
+            <motion.div whileHover={{ y: -8 }} className="p-6 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-blue-500/40 transition-all">
+              <div className="text-blue-400 mb-5"><FiGlobe size={42} /></div>
+              <h3 className="text-xl font-semibold mb-3">The Study Varta</h3>
+              <p className="text-gray-400 text-sm mb-6">Personal content website focused on technology, AI, digital marketing, SEO and data analytics.</p>
+              <a href="https://www.thestudyvarta.online/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 text-center py-3 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition"><FiExternalLink /> Visit Website</a>
+            </motion.div>
+
+            {/* PROJECT 5 */}
+            <motion.div whileHover={{ y: -8 }} className="p-6 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-blue-500/40 transition-all">
+              <div className="text-blue-400 mb-5"><FiVideo size={42} /></div>
+              <h3 className="text-xl font-semibold mb-3">REVEZO</h3>
+              <p className="text-gray-400 text-sm mb-6">AI-assisted satisfying coin transformation and restoration-style short-form content.</p>
+              <div className="flex flex-col gap-2">
+                <a href="https://www.instagram.com/revezohq" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 text-center py-3 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition"><FiExternalLink /> Instagram</a>
+                <a href="https://www.facebook.com/revezohq" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 text-center py-3 rounded-xl bg-white/5 border border-white/10 hover:border-blue-500/40 transition"><FiExternalLink /> Facebook</a>
+              </div>
+            </motion.div>
+
+            {/* PROJECT 6 */}
+            <motion.div whileHover={{ y: -8 }} className="p-6 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-blue-500/40 transition-all">
+              <div className="text-blue-400 mb-5"><FiVideo size={42} /></div>
+              <h3 className="text-xl font-semibold mb-3">IMORA – What If</h3>
+              <p className="text-gray-400 text-sm mb-6">AI-assisted hypothetical concepts and cinematic visual storytelling for social platforms.</p>
+              <div className="flex flex-col gap-2">
+                <a href="https://www.instagram.com/imora.whatif" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 text-center py-3 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition"><FiExternalLink /> Instagram</a>
+                <a href="https://www.facebook.com/imora.whatif" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 text-center py-3 rounded-xl bg-white/5 border border-white/10 hover:border-blue-500/40 transition"><FiExternalLink /> Facebook</a>
+              </div>
+            </motion.div>
+
+            {/* PROJECT 7 */}
+            <motion.div whileHover={{ y: -8 }} className="p-6 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-blue-500/40 transition-all">
+              <div className="text-blue-400 mb-5"><FiVideo size={42} /></div>
+              <h3 className="text-xl font-semibold mb-3">IMORA HISTORY</h3>
+              <p className="text-gray-400 text-sm mb-6">History-focused documentary-style storytelling and short-form educational videos.</p>
+              <a href="https://youtube.com/@imorahistory" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 text-center py-3 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition"><FiExternalLink /> YouTube</a>
+            </motion.div>
+
+            {/* PROJECT 8 */}
+            <motion.div whileHover={{ y: -8 }} className="p-6 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-blue-500/40 transition-all">
+              <div className="text-blue-400 mb-5"><FiVideo size={42} /></div>
+              <h3 className="text-xl font-semibold mb-3">Piku Mimi</h3>
+              <p className="text-gray-400 text-sm mb-6">AI-assisted 3D animated panda-couple stories and relatable short-form entertainment.</p>
+              <a href="https://www.instagram.com/pikumimi_" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 text-center py-3 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition"><FiExternalLink /> Instagram</a>
+            </motion.div>
+
           </div>
 
           {/* =================================================
@@ -1146,128 +1140,6 @@ ${name}`
           </div>
 
         )}
-
-        {/* =================================================
-            TESTIMONIALS
-        ================================================= */}
-
-        <section
-          id="testimonials"
-          className="scroll-mt-28"
-        >
-
-          <div className="text-center mb-12">
-
-            <p className="text-blue-400 uppercase tracking-[0.25em] text-sm mb-3">
-              Testimonials
-            </p>
-
-            <h2 className="text-4xl md:text-6xl font-bold">
-
-              What People{" "}
-
-              <span className="text-purple-400">
-                Say
-              </span>
-
-            </h2>
-
-            <p className="text-gray-400 max-w-2xl mx-auto mt-4">
-              Feedback from people I have worked, collaborated and learned
-              with.
-            </p>
-
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-
-            {/* TESTIMONIAL 1 */}
-
-            <div className="p-7 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10">
-
-              <div className="text-blue-400 text-xl mb-5">
-                ★★★★★
-              </div>
-
-              <p className="text-gray-300 italic leading-relaxed mb-7">
-                &quot;Add your verified client or colleague feedback here.&quot;
-              </p>
-
-              <div>
-
-                <p className="font-bold">
-                  Client / Colleague Name
-                </p>
-
-                <p className="text-gray-500 text-sm">
-                  Role / Organization
-                </p>
-
-              </div>
-
-            </div>
-
-            {/* TESTIMONIAL 2 */}
-
-            <div className="p-7 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10">
-
-              <div className="text-purple-400 text-xl mb-5">
-                ★★★★★
-              </div>
-
-              <p className="text-gray-300 italic leading-relaxed mb-7">
-
-                &quot;Add another genuine testimonial describing your work,
-                collaboration or results.&quot;
-
-              </p>
-
-              <div>
-
-                <p className="font-bold">
-                  Client / Colleague Name
-                </p>
-
-                <p className="text-gray-500 text-sm">
-                  Role / Organization
-                </p>
-
-              </div>
-
-            </div>
-
-            {/* TESTIMONIAL 3 */}
-
-            <div className="p-7 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10">
-
-              <div className="text-blue-400 text-xl mb-5">
-                ★★★★★
-              </div>
-
-              <p className="text-gray-300 italic leading-relaxed mb-7">
-
-                &quot;Add a verified testimonial highlighting your skills,
-                professionalism or project contribution.&quot;
-
-              </p>
-
-              <div>
-
-                <p className="font-bold">
-                  Client / Creator Name
-                </p>
-
-                <p className="text-gray-500 text-sm">
-                  Role / Organization
-                </p>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </section>
 
         {/* =================================================
             CONTACT
