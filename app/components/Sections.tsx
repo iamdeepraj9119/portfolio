@@ -432,7 +432,7 @@ ${name}`
               </a>
 
               <a
-                href="/resume.pdf"
+               href="/Deepraj_Srivastav_Resume.pdf"
                 download
                 className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl hover:opacity-90 transition hover:shadow-[0_0_20px_rgba(59,130,246,0.7)] font-semibold"
               >
